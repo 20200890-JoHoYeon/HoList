@@ -1,0 +1,129 @@
+/*bd*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+	padding-top: 10px;
+}
+
+.main_logo_a{
+	text-decoration-line: none;
+	color: black;
+}
+
+.title {
+	margin: 10px;
+}
+.message {
+    margin: 10px 0px;
+}
+
+/*bd_list*/
+
+#main {
+    display: flex;
+    height: 100vh;
+}
+
+#main_nav_area {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+#main_nav_area a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+#main_nav_area a:hover {
+    background-color: #555;
+}
+
+#main_con_area {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+}
+
+
+
+/*bd_view*/
+/*Âü°í¹®Çå: 
+https://inpa.tistory.com/entry/CSS-%F0%9F%92%8D-%ED%85%8C%EC%9D%B4%EB%B8%94table-%EB%94%94%EC%9E%90%EC%9D%B8-%F0%9F%96%8C%EF%B8%8F-%EB%AA%A8%EC%9D%8C
+*/
+
+table {
+  border-collapse: collapse;
+  border: 0;
+}
+th,
+td {
+  border: 1px solid #aaa;
+  background-clip: padding-box;
+  scroll-snap-align: start;
+}
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+thead {
+  z-index: 1000;
+  position: relative;
+}
+th,
+td {
+  padding: 0.6rem;
+  min-width: 6rem;
+  text-align: left;
+  margin: 0;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  border-top: 0;
+  background-clip: padding-box;
+}
+thead th.pin {
+  left: 0;
+  z-index: 1001;
+  border-left: 0;
+}
+tbody th {
+  background-clip: padding-box;
+  border-left: 0;
+}
+tbody {
+  z-index: 10;
+  position: relative;
+}
+tbody th {
+  position: sticky;
+  left: 0;
+}
+thead th,
+tbody th {
+  background-color: #f8f8f8;
+}
+.reg_btn{
+	position: fixed;
+	width: 180px;
+	height: 80px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+	right: 50px;
+	bottom: 50px;
+	border-radius: 100px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
