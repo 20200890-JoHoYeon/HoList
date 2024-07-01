@@ -7,7 +7,7 @@ It is an ASP-based bulletin board project developed as a Windows local host thro
 Front-End: ASP, CSS, JavaScript <br />
 Back-End: ASP
 
-# poli Project Results :exclamation:
+# iis_board_asp Project Results :exclamation:
 
 iis_board Project = ongoing :laughing: <br />
 
