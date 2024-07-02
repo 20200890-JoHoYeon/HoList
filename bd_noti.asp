@@ -10,24 +10,38 @@
 		<link rel="stylesheet" href="style.css">	
 	</head>
 	<body>
-		<h1 class="title"><a href="bd_noti.asp" class="main_logo_a">HOLIST</a></h1>
-		<hr>
+		<!-- #include virtual = "/board/bd_DTD/bd_nav.asp" --> 
 		<div id="main">
-			<div id="main_nav_area">
-				<span><h2 class="message">NAV</h2></span>
-					<a href="bd_noti.asp">공지사항</a>
-					<a href="bd_list.asp">일반게시판</a>
-				</div>
-				<div id="main_con_area">
-				<span><h2 class="message">공지사항</h2></span>
+			<!-- #include virtual = "/board/bd_DTD/bd_side_nav.asp" --> 
+			<div id="main_con_area">
+				<span>
+					<h2 class="message">공지사항</h2>
+				</span>
 				<p1>오늘의 공지사항</p1></br></br>
-				<p1>1. ISS 세팅 > local 설정 > DB 연결</p1></br>
-				<p1>2. MSSQL 2019 연결해보기</p1></br>
-				<p1>3. ERD 그려보기</p1></br>
-				<p1>4. 오늘 학습파트 노션 정리</p1></br>
 				
-			</div>
+				<div id="main_con_area_notis">
+					<div class="main_con_area_noti">
+						<h2 class="message_noti">Partners and Long-Term Clients</h2></br>
+						<div class="message_noti">
+							세원아토스는 다년간 패션 업무만을 위한 솔루션 개발을 통하여 쌓아온 노하우를 기반으로 패션/유통업계에 최적화된 솔루션 제공합니다.
+						</div></br></br>
+						<h2 class="message_noti">
+							SEWONATOS SOFTWARE SOLUTION
+						</h2></br>
+						<div class="message_noti">세원아토스는 패션 ERP에 많은 경험을 가진 전문적인 실무자로 구성되어 있습니다. 효율적인 솔루션을 원하시면 세원아토스를 선택하십시오.</div></br>
 
+						<div class="message_noti">20년의 경험과 노하우가 축적된 패션 전문 ERP 프로그램</div>
+						<div class="message_noti"></div></br>
+						</br>
+					</div>
+					<div class="main_con_area_img">
+						<div><a href="https://www.sewonatos.co.kr/"><img src="image/meta_img.jpg"></img></div></br>
+					</div>
+					<div class="main_con_area_img">
+						<div><a href="http://www.sellic.co.kr/"><img src="image/meta_img2.png"></img></div></br>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
