@@ -4,32 +4,28 @@
 		<h2 class="message">SIDE NAV</h2>
 	</span>
 	<span>
-		<h4 class="message">프론트</h4>
+		<h4 class="message" id="menu_title">결재</h4>
 	</span>
-	<div>
-		<a class="l_menu_a">별모양</a>
-		<a class="l_menu_a">구구단</a>
-		<a class="l_menu_a">탭메뉴</a>
-		<a class="l_menu_a">덧글달기</a>
-		<a class="l_menu_a">팝업입력</a>
+	<div id="front">
+		<a href="/board/webcontent/front_menu/front_star.asp" class="l_menu_a">별모양</a>
+		<a href="/board/webcontent/front_menu/front_multiply.asp"  class="l_menu_a">구구단</a>
+		<a href="/board/webcontent/front_menu/front_tab.asp"  class="l_menu_a">탭메뉴</a>
+		<a href="/board/webcontent/front_menu/front_comment.asp"  class="l_menu_a">덧글달기</a>
+		<a href="/board/webcontent/front_menu/front_popup.asp"  class="l_menu_a">팝업입력</a>
 	</div>
-	<br>
+
 	<!-- 백엔드 -->
-	<span>
-		<h4 class="message">백엔드</h4>
-	</span>
-	<div>
-		<a class="l_menu_a">공지사항</a>
-		<a class="l_menu_a">일반게시판</a>
+
+	<div id="back">
+		<a class="l_menu_a" href="/board/webcontent/back_menu/bd_noti.asp">공지사항</a>
+		<a class="l_menu_a" href="/board/webcontent/back_menu/bd_list.asp">일반게시판</a>
 		<a class="l_menu_a">파일게시판</a>
 		<a class="l_menu_a">덧글게시판</a>
 	</div>
-	<br>
+
 	<!-- 메일 -->
-	<span>
-		<h4 class="message">메일</h4>
-	</span>
-	<div>
+
+	<div id="mail">
 		<a class="l_menu_a">새편지</a>
 		<a class="accordion">메일함</a>
 		<div class="s_menu">
@@ -51,13 +47,11 @@
 			<a class="s_menu_a">스팸정책</a>
 		</div>
 	</div>
-	<br>
+
 	<!-- 결재 -->
-	<span>
-		<h4 class="message">결재</h4>
-	</span>
-	<div>
-		<a>전체보기</a>
+
+	<div id="payment">
+		<a class="l_menu_a">전체보기</a>
 		<a class="accordion">결재문서</a>
 		<div class="s_menu">
 			<a class="s_menu_a">새문서</a>
@@ -88,6 +82,7 @@
 </div>
 
 <script>
+	
     // Get all accordion spans
     const accordions = document.querySelectorAll('.accordion');
 

@@ -7,12 +7,12 @@
 		<meta name="Keywords" content="">
 		<meta name="Description" content="">
 		<title>공지사항</title>
-		<link rel="stylesheet" href="style.css">	
+		<link rel="stylesheet" href="/board/css/style.css">	
 	</head>
 	<body>
-		<!-- #include virtual = "/board/bd_DTD/bd_nav.asp" --> 
+		<!-- #include virtual = "/board/DTD/main_nav.asp" --> 
 		<div id="main">
-			<!-- #include virtual = "/board/bd_DTD/bd_side_nav.asp" --> 
+			<!-- #include virtual = "/board/DTD/main_side_nav.asp" -->
 			<div id="main_con_area">
 				<span>
 					<h2 class="message">공지사항</h2>
@@ -34,11 +34,17 @@
 						<div class="message_noti"></div></br>
 						</br>
 					</div>
+					
+					<span>
+						<h2 class="message">세원아토스 사이트</h2>
+					</span>
+					<p1>공식 사이트 바로가기</p1></br></br>
+
 					<div class="main_con_area_img">
-						<div><a href="https://www.sewonatos.co.kr/"><img src="image/meta_img.jpg"></img></div></br>
+						<div><a href="https://www.sewonatos.co.kr/"><img src="/board/image/meta_img.jpg"></img></div></br>
 					</div>
 					<div class="main_con_area_img">
-						<div><a href="http://www.sellic.co.kr/"><img src="image/meta_img2.png"></img></div></br>
+						<div><a href="http://www.sellic.co.kr/"><img src="/board/image/meta_img2.png"></img></div></br>
 					</div>
 				</div>
 			</div>
