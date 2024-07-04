@@ -10,8 +10,9 @@
 		<a href="/board/webcontent/front_menu/front_star.asp" class="l_menu_a">별모양</a>
 		<a href="/board/webcontent/front_menu/front_multiply.asp"  class="l_menu_a">구구단</a>
 		<a href="/board/webcontent/front_menu/front_tab.asp"  class="l_menu_a">탭메뉴</a>
+		<a href="/board/webcontent/front_menu/front_popup.asp"  class="l_menu_a">레이어팝업</a>
 		<a href="/board/webcontent/front_menu/front_comment.asp"  class="l_menu_a">덧글달기</a>
-		<a href="/board/webcontent/front_menu/front_popup.asp"  class="l_menu_a">팝업입력</a>
+		<a href="/board/webcontent/front_menu/front_popupInput.asp"  class="l_menu_a">팝업입력</a>
 	</div>
 
 	<!-- 백엔드 -->

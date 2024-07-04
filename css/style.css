@@ -1,212 +1,231 @@
 /*bd*/
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+	
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  padding-top: 10px;
-  overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+	padding-top: 10px;
+	overflow-x: hidden;
+
 }
 
-.main_logo_a {
-  text-decoration-line: none;
-  color: black;
+.main_logo_a{
+	text-decoration-line: none;
+	color: black;
 }
 
 .title {
-  margin: 10px;
+	margin: 10px;
 }
 .message {
-  margin: 20px 0px;
+    margin: 20px 0px;
 }
-.message_noti {
-  font-size: 18px;
+.message_noti{
+	font-size: 18px;
+
 }
 
 /*bd_list*/
 
-#main {
-  display: flex;
-  width: 100vh;
-  height: 150vh;
+#main {  
+    display: flex;
+	width: 100vh;
+
 }
-#main_nav_area {
-  margin: 30px;
+#main_nav_area{
+    margin: 30px;
 }
 #main_nav_area .main_nav_menu {
-  text-decoration: none;
-  padding: 5px 20px;
-  color: #000;
+    text-decoration: none;
+    padding: 5px 20px;
+	color: #000;
 }
 
 .main_nav_menu_btn {
-  border: 0;
-  font-size: 15px;
-  background-color: transparent;
+	border: 0;
+	font-size: 15px;
+	background-color: transparent;
 }
 
 #main_side_nav_area {
-  display: block;
-  width: 240px;
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+	min-height: 100vh;
+	height: auto;
+	display: block;
+	width: 240px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
 }
 
 .accordion {
-  display: block;
-  background-color: #444;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 10px 20px 10px 0px;
-  resize: none;
+	display: block;
+	background-color: #444;
+    border-radius: 5px;
+    padding: 20px;
+	margin: 10px 20px 10px 0px;
+    resize: none;
 }
 
 #main_side_nav_area .l_menu_a {
-  width: 180px;
-  display: none;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 10px;
+	width: 180px;
+    display: none;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 10px;
 }
+
 
 #main_side_nav_area .l_menu_a:hover {
-  background-color: #555;
+    background-color: #555;
 }
 
+
 .s_menu {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7);
-  background-color: #222;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 10px 20px 10px 0px;
-  resize: none;
-  display: none;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+    border: 1.5px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7); /* 그림자 설정 */
+	background-color: #222;
+    border-radius: 5px;
+    padding: 20px;
+	margin: 10px 20px 10px 0px;
+    resize: none;
+	display: none;
 }
-.s_menu,
-.l_menu_a,
-.accordion {
-  display: none;
+.s_menu, .l_menu_a, .accordion{
+	display: none;
 }
-.s_menu_a {
-  width: 140px;
-  display: block;
-  color: #fff;
-  padding: 10px 10px;
+.s_menu_a{
+	width: 140px;
+    display: block;
+    color: #fff;
+    padding: 10px 10px;
 }
 .s_menu_a:hover {
-  background-color: #555;
+    background-color: #555;
 }
 
 #main_side_nav_area .message {
-  width: 200px;
-  text-decoration: none;
-  padding: 10px 20px;
+	width: 200px;
+    text-decoration: none;
+    padding: 10px 20px;
 }
 
-#main_side_nav_area div {
-  padding-left: 20px; /* Add some padding for indentation */
-}
+ #main_side_nav_area div {
+    padding-left: 20px; /* Add some padding for indentation */
+  }
+
 
 #main_con_area {
-  background-color: #fff;
-  padding: 20px;
+    background-color: #fff;
+    padding: 20px;
+
 }
 #main_con_area_notis {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .main_con_area_noti {
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: calc(173vh - 5.5em);
-  height: 300px;
-  border-radius: 5px;
-  padding: 50px 40px;
-  margin-bottom: 50px;
-  resize: none;
+    border: 1.5px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    width: calc(173vh - 5.5em);
+    height: 300px;
+    border-radius: 5px;
+    padding: 50px 40px;
+    margin-bottom: 50px;
+    resize: none;
 }
 .main_con_area_img {
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: calc(173vh - 0.5em);
-  height: 300px;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    border: 1.5px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    width: calc(173vh - 0.5em);
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden; /* 부모 요소를 넘어가는 내용을 숨깁니다 */
+    margin-bottom: 20px;
+    display: flex; /* Flexbox 레이아웃을 사용합니다 */
+    align-items: center; /* 세로 방향 중앙 정렬 */
+    justify-content: center; /* 가로 방향 중앙 정렬 */
 }
 
 .main_con_area_img img {
-  width: auto;
-  height: auto;
-  object-fit: cover;
+    width: auto; /* 이미지의 너비를 100%로 설정하여 부모 요소에 맞춥니다 */
+    height: auto; /* 높이를 자동으로 조정하여 비율을 유지합니다 */
+    object-fit: cover; /* 이미지가 부모 요소에 맞게 크롭되도록 cover 옵션을 사용합니다 */
 }
+
+
 
 /*bd_view*/
+/*참고문헌: 
+https://inpa.tistory.com/entry/CSS-%F0%9F%92%8D-%ED%85%8C%EC%9D%B4%EB%B8%94table-%EB%94%94%EC%9E%90%EC%9D%B8-%F0%9F%96%8C%EF%B8%8F-%EB%AA%A8%EC%9D%8C
+*/
 
 table {
-  border-collapse: collapse;
-  /*border: 0;*/
-  border: 1px solid #aaa;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd; /* 테두리 전체적으로 추가 */
+    margin-bottom: 1rem; /* 여백 추가 */
 }
-th,
-td {
-  border: 1px solid #aaa;
+
+th, td {
+    padding: 1rem;
+    border: 1px solid #ddd; /* 각 셀에 보더 추가 */
+    text-align: left;
 }
+
+/* 헤더와 마지막 행 스타일링 */
+thead th {
+    background-color: #f2f2f2; /* 배경색 추가 */
+}
+
 tbody tr:last-child th,
 tbody tr:last-child td {
-  border-bottom: 0;
+    border-bottom: 0; /* 마지막 행의 아래 테두리 제거 */
 }
 
-th,
-td {
-  padding: 1.6rem;
-  min-width: 7rem;
-  text-align: left;
-  margin: 0;
+/* 좌측 고정 헤더 스타일 */
+thead th
+tbody th {
+    position: sticky;
+    left: 0;
+    background-color: #fff; /* 배경색 추가 */
 }
 
-.tb_title,
+/* 셀 최소 너비 */
+th, td {
+    min-width: 7rem;
+}
+
+/* 특정 열의 최소 너비 조정 */
+.tb_title {
+    min-width: 30rem;
+}
 .tb_write {
-  min-width: 20rem;
+    min-width: 20rem;
 }
 
-tbody th {
-  border-left: 0;
+
+.reg_btn{
+	box-shadow: 0px 8px 6px -6px #666;
+	border: 6px solid  #2F2F2F; /* 반투명한 검정색 border */
+	position: fixed;
+	width: 150px;
+	height: 60px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+	right: 50px;
+	bottom: 50px;
+	border-radius: 100px;
+	font-size: 17.5px;
+	font-weight: bold;
+	z-index: 9999; /* 최상위로 설정할 z-index 값 */
 }
-tbody {
-  z-index: 10;
-  position: relative;
-}
-tbody th {
-  position: sticky;
-  left: 0;
-}
-thead th,
-tbody th {
-  background-color: #f8f8f8;
-}
-.reg_btn {
-  position: fixed;
-  width: 150px;
-  height: 60px;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  right: 50px;
-  bottom: 50px;
-  border-radius: 100px;
-  font-size: 20px;
-  font-weight: bold;
-  z-index: 9999;
-}
+
+

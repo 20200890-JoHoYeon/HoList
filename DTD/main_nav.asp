@@ -1,7 +1,5 @@
 <div id="main_nav_area">
-    <h1 class="title">
-        <a href="/board/webcontent/front_menu/front_star.asp" class="main_logo_a">HOLIST</a>
-    </h1>
+    <h1 class="title main_logo_a"> HOLIST </h1>
     <input class="main_nav_menu main_nav_menu_btn" name="menu" type="button" value="프론트" onclick="FnCheckValue(this)">
     <input class="main_nav_menu main_nav_menu_btn" name="menu" type="button" value="백엔드" onclick="FnCheckValue(this)">
     <input class="main_nav_menu main_nav_menu_btn" name="menu" type="button" value="메일" onclick="FnCheckValue(this)">
@@ -21,6 +19,7 @@
         });
 
         function initMenuDisplay() {
+
             const submenuToShow = document.querySelectorAll(`#${menuValue} .l_menu_a, #${menuValue} .accordion`);
             submenuToShow.forEach(menu => {
                 menu.style.display = 'block';
