@@ -4,7 +4,7 @@ ASP-based bulletin board and front-end design projects and hands-on work develop
 
 # development stack :question:
 
-Front-End: HTML, CSS, JavaScript <br />
+Front-End: ASP, CSS, JavaScript <br />
 Back-End: ASP
 
 # HoList Project Results :exclamation:
