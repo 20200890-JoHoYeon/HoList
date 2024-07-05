@@ -1,15 +1,15 @@
-# iis_board_asp
+# HoList
 
-It is an ASP-based bulletin board project developed as a Windows local host through IIS.
+ASP-based bulletin board and front-end design projects and hands-on work developed as Windows Local hosts through IIS.
 
 # development stack :question:
 
 Front-End: ASP, CSS, JavaScript <br />
 Back-End: ASP
 
-# iis_board_asp Project Results :exclamation:
+# HoList Project Results :exclamation:
 
-iis_board Project = ongoing :laughing: <br />
+HoList Project = ongoing :laughing: <br />
 
 ## Development Story :question:
 
@@ -19,9 +19,9 @@ This project was developed during field training.
 ## Footer :exclamation:
 <!--
 Click [here](#) to visit my project.
-
-
+-->
+![이미지](https://github.com/20200890-JoHoYeon/HoList/assets/70556072/9a04d491-35a8-46cb-b52c-3d1a7fe24455)
 
 Finally, I will register a photo showing the progress of the project. Thank you for your review. 😘
 
--->
+
