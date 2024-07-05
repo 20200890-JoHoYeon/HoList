@@ -13,6 +13,12 @@ body {
 
 }
 
+a{
+	text-decoration: none;
+	color: black;
+
+}
+
 .main_logo_a{
 	text-decoration-line: none;
 	color: black;
@@ -68,6 +74,7 @@ body {
     padding: 20px;
 	margin: 10px 20px 10px 0px;
     resize: none;
+	color: #fff;
 }
 
 #main_side_nav_area .l_menu_a {
@@ -229,3 +236,27 @@ th, td {
 }
 
 
+#prevBtn, #nextBtn {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+	margin: 0px 15px;
+}
+
+#prevBtn:active, #nextBtn:active {
+	background: #ddd;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+
+
+}
+#pagination{
+	display: flex;
+	
+	justify-content: center;
+}

@@ -9,7 +9,7 @@
     <title>레이어팝업</title>
     <link rel="stylesheet" href="/board/css/style.css">   
     <link rel="stylesheet" href="/board/css/front_menu_style.css">
-
+	<script src="/board/js/js_front_popup.js"></script>
 </head>
 <body>
     <!-- #include virtual = "/board/DTD/main_nav.asp" --> 
@@ -25,10 +25,10 @@
                 <div class="main_con_area_noti star_con_area pop_con_area">
                     <h2 class="message_noti">포트폴리오 팝업 배너</h2><br>
                     <div class="message_noti pop_btn_area">
-                        <button class="pop_btn" data-tab="project_a" onclick="FntogglePopup('project_a')">
+                        <button class="pop_btn" data-tab="project_a" onclick="fntogglePopup('project_a')">
 							<img class="pop_img" src="/board/image/pp1_banner_img.png">
 						</button>
-                        <button class="pop_btn" data-tab="project_b" onclick="FntogglePopup('project_b')">
+                        <button class="pop_btn" data-tab="project_b" onclick="fntogglePopup('project_b')">
 							<img class="pop_img" src="/board/image/pp2_banner_img.png">
                         </button>
 
@@ -133,33 +133,7 @@
         </div>
     </div>
 
-	    <!-- Overlay for background click close -->
-    <div class="popup-overlay" onclick="FncloseAllPopups()"> <span class="popup-close" onclick="FntogglePopup('project_a')">&times;</span></div>
-    <script>
-        function FntogglePopup(projectId) {
-            var popup = document.getElementById(projectId);
-            var overlay = document.querySelector('.popup-overlay');
-
-            if (popup.style.display === 'block') {
-                popup.style.display = 'none';
-                overlay.style.display = 'none';
-            } else {
-                // Hide all popups and overlay
-                FncloseAllPopups();
-                // Show selected popup and overlay
-                popup.style.display = 'block';
-                overlay.style.display = 'block';
-            }
-        }
-
-        function FncloseAllPopups() {
-            var popups = document.querySelectorAll('.popup');
-            var overlay = document.querySelector('.popup-overlay');
-            popups.forEach(function(popup) {
-                popup.style.display = 'none';
-            });
-            overlay.style.display = 'none';
-        }
-    </script>
+	<!-- Overlay for background click close -->
+    <div class="popup-overlay" onclick="fncloseAllPopups()"> <span class="popup-close" onclick="fntogglePopup('project_a')">&times;</span></div>
 </body>
 </html>

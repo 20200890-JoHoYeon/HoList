@@ -9,7 +9,7 @@
     <title>탭메뉴</title>
     <link rel="stylesheet" href="/board/css/style.css">   
     <link rel="stylesheet" href="/board/css/front_menu_style.css">
-
+	<script src="/board/js/js_front_tab.js"></script>
 </head>
 <body>
     <!-- #include virtual = "/board/DTD/main_nav.asp" --> 
@@ -25,12 +25,12 @@
                 <div class="main_con_area_noti star_con_area tab_con_area">
                     <h2 class="message_noti">컨텐츠 뷰</h2><br>
                     <div class="message_noti">
-                        <button class="tab_btn active" data-tab="introduction" onclick="FntabSChange('introduction')">자기소개</button>
-                        <button class="tab_btn" data-tab="stack" onclick="FntabSChange('stack')">기술스택</button>
-                        <button class="tab_btn" data-tab="project_a" onclick="FntabSChange('project_a')">프로젝트 - 1</button>
-                        <button class="tab_btn" data-tab="project_b" onclick="FntabSChange('project_b')">프로젝트 - 2</button>
-                        <button class="tab_btn" data-tab="project_c" onclick="FntabSChange('project_c')">프로젝트 - 3</button>
-                        <button class="tab_btn" data-tab="sns" onclick="FntabSChange('sns')">메신저 링크</button>
+                        <button class="tab_btn active" data-tab="introduction" onclick="fntabSChange('introduction')">자기소개</button>
+                        <button class="tab_btn" data-tab="stack" onclick="fntabSChange('stack')">기술스택</button>
+                        <button class="tab_btn" data-tab="project_a" onclick="fntabSChange('project_a')">프로젝트 - 1</button>
+                        <button class="tab_btn" data-tab="project_b" onclick="fntabSChange('project_b')">프로젝트 - 2</button>
+                        <button class="tab_btn" data-tab="project_c" onclick="fntabSChange('project_c')">프로젝트 - 3</button>
+                        <button class="tab_btn" data-tab="sns" onclick="fntabSChange('sns')">메신저 링크</button>
                     </div><br><br>
                     
                     <div id="main_con_area_notis">
@@ -171,38 +171,5 @@
             </div>
         </div>
     </div>
-    <script>
-		document.addEventListener('DOMContentLoaded', function() {
-			 FntabSChange("introduction")
-		});
-        function FntabSChange(shapeId) {
-
-            // 모든 tab_content 숨기기
-            let tabContents = document.querySelectorAll('.tab_con_view');
-            tabContents.forEach(content => {
-                content.style.display = 'none';
-            });
-
-            // 선택한 shapeId에 해당하는 tab_content 보이기
-            let selectedTab = document.getElementById(shapeId);
-            if (selectedTab) {
-                selectedTab.style.display = 'block';
-            } else {
-                console.log("해당하는 ID의 요소가 없습니다.");
-            }   
-            
-            // 모든 버튼의 active 클래스 제거
-            let tabButtons = document.querySelectorAll('.tab_btn');
-            tabButtons.forEach(button => {
-                button.classList.remove('active');
-            });
-
-            // 클릭된 버튼에 active 클래스 추가
-            let clickedButton = document.querySelector(`.tab_btn[data-tab="${shapeId}"]`);
-            if (clickedButton) {
-                clickedButton.classList.add('active');
-            }
-        }
-    </script>
 </body>
 </html>

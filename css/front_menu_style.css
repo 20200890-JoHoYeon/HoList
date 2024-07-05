@@ -172,5 +172,16 @@
 	width: 50%;
 }
 .commont{
-	margin: 30px 0px;
+	padding: 30px 0px;
+}
+.comment_area{
+	border:0;
+	border-bottom: 2px solid rgba(0, 0, 0, 1); /* 반투명한 검정색 border */
+    width: 125px;
+    height: 60px;
+	background: #fff;
+	font-weight: normal; /* 기본 폰트 굵기 */
+    font-size: 15px;
+    border-radius: 0px;
+	margin: 2px; 
 }

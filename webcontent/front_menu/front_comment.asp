@@ -9,7 +9,7 @@
     <title>덧글달기</title>
     <link rel="stylesheet" href="/board/css/style.css">   
     <link rel="stylesheet" href="/board/css/front_menu_style.css">
-
+	<script src="/board/js/js_front_comment.js"></script>
 </head>
 <body>
     <!-- #include virtual = "/board/DTD/main_nav.asp" --> 
@@ -34,32 +34,19 @@
 							<h2 class="message_noti"># 덧글 작성란 ❗</h2><br>
 							<div class="message_noti">
 								<input class="multiply_input multiply_input_long popup_input" type="text" value="" id="one_value" name="one_value">
-								<button class="star_btn" onclick="fnOnClickReviewMessage()">작성</button>
+								<button class="star_btn" id="add_comment_btn" onclick="fnAddComment()">작성</button>
 							</div><br><br>
 							<h2 class="message_noti"> # 덧글 리스트 ❗</h2><br>
                             <div class="message_noti" id="pop_review_message">
                             </div><br><br>
- 
-                            <hr><div class="message_noti commont">
-                                Recently, I have also become interested in the backend field, <br> so I am working on projects centered on ASP. 👍 <br>
-                                And I will study ASP in depth to complete and finish the project 👍 <br>
-                            </div><hr><br><br>
-                            <hr><div class="message_noti commont">
-                                Recently, I have also become interested in the backend field, <br> so I am working on projects centered on ASP. 👍 <br>
-                                And I will study ASP in depth to complete and finish the project 👍 <br>
-                            </div><hr><br><br>
-
-
+                            <div class="message_noti " id="commentList">
+                               
+                            </div>
                         </div><br>
                     </div><br><br>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <script>
-
-    </script>
 </body>
 </html>
