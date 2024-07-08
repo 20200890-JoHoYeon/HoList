@@ -7,6 +7,7 @@ function fntabSChange(shapeId) {
 	let tabContents = document.querySelectorAll('.tab_con_view');
 	tabContents.forEach(content => {
 		content.style.display = 'none';
+		
 	});
 
 	// 선택한 shapeId에 해당하는 tab_content 보이기

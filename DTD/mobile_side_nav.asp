@@ -1,11 +1,6 @@
-<div id="main_side_nav_area">
+<div id="mobile_side_nav_area">
 	<!-- 프론트 -->
-	<span>
-		<h2 class="message">SIDE NAV</h2>
-	</span>
-    <span>
-        <h4 class="message" id="menu_title">결재</h4>
-    </span>
+
     <div id="front">
         <a class="l_menu_a" onclick="fnCheckMenu('front_star')">별모양</a>
         <a class="l_menu_a" onclick="fnCheckMenu('front_multiply')">구구단</a>
@@ -81,5 +76,4 @@
 		</div>
 	</div>
 </div>
-
 

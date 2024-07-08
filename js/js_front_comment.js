@@ -26,6 +26,13 @@ function displayCurrentTime() {
 
 document.addEventListener("DOMContentLoaded", function() {
   let commentInput = document.getElementById("one_value");
+
+  // #one_value 요소가 존재하지 않을 경우 처리
+  if (commentInput === null) {
+    
+    return;
+  }
+
   commentInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
       event.preventDefault(); // 기본 동작(폼 제출) 방지

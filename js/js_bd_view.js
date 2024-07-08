@@ -10,7 +10,7 @@ function deleteFunction() {
 }
 let postId;
 document.addEventListener('DOMContentLoaded', function() {
-
+	
 	// URL에서 id 값을 가져옵니다.
 	let urlParams = new URLSearchParams(window.location.search);
 	postId = urlParams.get('id');

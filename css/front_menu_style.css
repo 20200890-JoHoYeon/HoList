@@ -1,117 +1,109 @@
 /*star*/
-.star_con_area{
-	height: 500px;
-
-}
-
 .star_btn {
-	border: 2px solid rgba(0, 0, 0, 0.1); /* ¹İÅõ¸íÇÑ °ËÁ¤»ö border */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* ë°˜íˆ¬ëª…í•œ ê²€ì •ìƒ‰ border */
     width: 105px;
     height: 50px;
     font-size: 15px;
     border-radius: 5px;
-	margin-right: 20px; 
+    margin-right: 20px;
 }
 
 .star_btn_long {
-	width: 435px;
+    width: 100%; /* Full width for responsive behavior */
+    max-width: 435px; /* Maximum width */
 }
 
 .star_btn:active {
-	background: #ddd;
+    background: #ddd;
     font-size: 15px;
     border: 0;
     border-radius: 5px;
 }
 
 /*multiply*/
-.multiply_input{
-	border: 2px solid rgba(0, 0, 0, 0.1); /* ¹İÅõ¸íÇÑ °ËÁ¤»ö border */
+.multiply_input {
+    border: 2px solid rgba(0, 0, 0, 0.1); /* ë°˜íˆ¬ëª…í•œ ê²€ì •ìƒ‰ border */
     width: 105px;
     height: 50px;
     font-size: 15px;
     border-radius: 5px;
-	margin-right: 20px;
-	font-size:25px;
-	padding-left: 10px;
+    margin-right: 20px;
+    font-size: 25px;
+    padding-left: 10px;
 }
 
-.multiply_input_long{
-    width: 290px;
+.multiply_input_long {
+    width: 100%; /* Full width for responsive behavior */
+    max-width: 290px; /* Maximum width */
 }
-.multiply_input_wave{
-	margin-right: 20px; 
-	display: inline;
+
+.multiply_input_wave {
+    margin-right: 20px;
+    display: inline;
 }
+
 /*tab*/
-.tab_con_area{
-	height: auto;
-	width: auto;
+.tab_con_view {
+    width: 100%;
+    max-width: calc(100vw - 12.5em); /* Adjust max-width based on viewport */
+    height: auto;
+    display: none; /* ê¸°ë³¸ì ìœ¼ë¡œ ëª¨ë“  tab_contentëŠ” ìˆ¨ê¹€ */
 }
 
-.tab_con_view{
-	width: calc(100vh - 12.5em);
-	height: auto;
-	display: none; /* ±âº»ÀûÀ¸·Î ¸ğµç tab_content´Â ¼û±è */
-}
-.tab_img_view{
-	width: calc(100vh - 12.5em);
-	height: 300px;
-}
-.tab_project_img{
-	width: calc(100vh - 12.5em);
-	
-}
-.tab_menu{
-	
+.tab_img_view {
+    width: 100%;
+    max-width: calc(100vw - 12.5em); /* Adjust max-width based on viewport */
+    height: 300px;
 }
 
-.tab_btn{
-	border:0;
-	border-bottom: 2px solid rgba(0, 0, 0, 1); /* ¹İÅõ¸íÇÑ °ËÁ¤»ö border */
+.tab_project_img {
+    width: 100%;
+    max-width: calc(100vw - 12.5em); /* Adjust max-width based on viewport */
+}
+
+
+.tab_btn {
+    border: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 1); /* ë°˜íˆ¬ëª…í•œ ê²€ì •ìƒ‰ border */
     width: 125px;
     height: 60px;
-	background: #fff;
-	font-weight: normal; /* ±âº» ÆùÆ® ±½±â */
+    background: #fff;
+    font-weight: normal; /* ê¸°ë³¸ í°íŠ¸ êµµê¸° */
     font-size: 15px;
     border-radius: 0px;
-	margin: 2px; 
-
+    margin: 2px;
 }
 
 .tab_btn.active {
-	color: tomato;
-	font-weight: bold; /* È°¼ºÈ­µÈ ¹öÆ°ÀÇ ÆùÆ® ±½±â */
-    border-bottom-color: tomato; /* È°¼ºÈ­µÈ ¹öÆ°ÀÇ ¹ÙÅÒ º¸´õ »ö»ó */
+    color: tomato;
+    font-weight: bold; /* í™œì„±í™”ëœ ë²„íŠ¼ì˜ í°íŠ¸ êµµê¸° */
+    border-bottom-color: tomato; /* í™œì„±í™”ëœ ë²„íŠ¼ì˜ ë°”í…€ ë³´ë” ìƒ‰ìƒ */
 }
-
 
 /*pop*/
-.pop_con_area {
-	height: auto;
+.pop_con_view {
+    display: block;
+    width: 100%;
+    max-width: calc(100vw - 5em); /* Adjust max-width based on viewport */
+    height: auto;
+}
 
-}
-.pop_con_view{
-	display: block;
-	width: calc(163.5vh - 5em);
-	height: auto;
-}
 .pop_btn_area {
     display: flex;
-	flex-direction: column;
+    flex-direction: column;
     justify-content: space-between; /* Adjust as per your layout needs */
     align-items: center; /* Align items vertically */
-    
 }
 
 .pop_btn {
     border: 0;
     background: #fff;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* ±×¸²ÀÚ ¼³Á¤ */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* ê·¸ë¦¼ì ì„¤ì • */
     cursor: pointer;
-	width: calc(165.5vh - 1.5em);
-	margin: 0px 20px;
-	height:500px;
+    width: 100%;
+    max-width: calc(100vw - 1.5em); /* Adjust max-width based on viewport */
+    margin: 0px 20px;
+    height: auto;
 }
 
 .pop_img {
@@ -120,7 +112,6 @@
     display: block; /* Ensures any extra space due to aspect ratio is respected */
     object-fit: cover; /* Crop the image to cover the entire container */
 }
-
 /* Optional: CSS for hiding popup initially */
 .popup-overlay {
 	display: none;
@@ -158,30 +149,32 @@
 }
 
 /*popupInput*/
-.popup_input{
-	width: calc(100vh - 16em);
-	font-size: 15px;
-	margin-bottom: 20px;
-}
-.pop_input_img{
-	height: auto;
+.popup_input {
+    width: 100%; /* Full width for responsive behavior */
+    max-width: 290px; /* Maximum width */
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
+
 /*comment*/
-.comment_img{
-	width: 50%;
+.comment_img {
+    width: 50%;
 }
-.commont{
-	padding: 30px 0px;
+
+.commont {
+    padding: 30px 0px;
 }
-.comment_area{
-	border:0;
-	border-bottom: 2px solid rgba(0, 0, 0, 1); /* ¹İÅõ¸íÇÑ °ËÁ¤»ö border */
-    width: 125px;
+
+.comment_area {
+    border: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 1); /* ë°˜íˆ¬ëª…í•œ ê²€ì •ìƒ‰ border */
+    width: 100%;
+    max-width: 125px; /* Maximum width */
     height: 60px;
-	background: #fff;
-	font-weight: normal; /* ±âº» ÆùÆ® ±½±â */
+    background: #fff;
+    font-weight: normal; /* ê¸°ë³¸ í°íŠ¸ êµµê¸° */
     font-size: 15px;
     border-radius: 0px;
-	margin: 2px; 
+    margin: 2px;
 }

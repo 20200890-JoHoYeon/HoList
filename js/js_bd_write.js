@@ -5,7 +5,7 @@ function cancelFunction() {
 	} else {
 		if (confirm("수정을 취소 하시겠습니까?") == false) return false;
 	}
-	window.location.href = 'bd_list.asp'; // 취소 버튼 클릭 시 bd_list.asp 페이지로 이동
+	fnCheckMenu('bd_list');// 취소 버튼 클릭 시 bd_list.asp 페이지로 이동
 }
 
 function regFunction() {
@@ -29,14 +29,13 @@ function regFunction() {
 		alert("수정하였습니다.");
 	}
 	console.log(document.querySelector('#txtTitle').value);
-
+	fnCheckMenu('bd_list');
 }
 document.addEventListener('DOMContentLoaded', function() {
-	let urlParams = new URLSearchParams(window.location.search);
-	postId = urlParams.get('id');
+	//let urlParams = new URLSearchParams(window.location.search);
+	//postId = urlParams.get('id');
 
 	console.log("postId:", postId);
-
 	// postId로 해당 게시물 데이터를 찾습니다.
 	let postData = dummyData.find(function(data) {
 		return data['번호'] == postId;
@@ -53,6 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	else 
 	{
+		
+		
+		if (document.querySelector('#date_tr') === null) {
+			
+			return;
+		}
+		// #one_value 요소가 존재하지 않을 경우 처리
 		document.querySelector('#date_tr').style.display = 'none';
 	}
 
@@ -64,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		btnElement.value="완료"
 
 	} else {
-		titleElement.textContent = "게시글 작성하기";
+		titleElement.textContent = "게시글 작성d하기";
 		btnElement.value="등록"
 	}
 });
