@@ -6,7 +6,7 @@
     <span>
         <h4 class="message" id="menu_title">결재</h4>
     </span>
-    <div id="front">
+    <div id="front" class="clickmenu">
         <a class="l_menu_a" onclick="fnCheckMenu('front_star')">별모양</a>
         <a class="l_menu_a" onclick="fnCheckMenu('front_multiply')">구구단</a>
         <a class="l_menu_a" onclick="fnCheckMenu('front_tab')">탭메뉴</a>
@@ -17,7 +17,7 @@
 
 	<!-- 백엔드 -->
 
-	<div id="back">
+	<div id="back" class="clickmenu">
 		<a class="l_menu_a" onclick="fnCheckMenu('bd_noti')">공지사항</a>
 		<a class="l_menu_a" onclick="fnCheckMenu('bd_list')">일반게시판</a>
 		<a class="l_menu_a">파일게시판</a>
@@ -26,7 +26,7 @@
 
 	<!-- 메일 -->
 
-	<div id="mail">
+	<div id="mail" class="clickmenu">
 		<a class="l_menu_a">새편지</a>
 		<a class="accordion">메일함</a>
 		<div class="s_menu">
@@ -51,7 +51,7 @@
 
 	<!-- 결재 -->
 
-	<div id="payment">
+	<div id="payment" class="clickmenu">
 		<a class="l_menu_a">전체보기</a>
 		<a class="accordion">결재문서</a>
 		<div class="s_menu">

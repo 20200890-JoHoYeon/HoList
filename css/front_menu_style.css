@@ -10,7 +10,7 @@
 
 .star_btn_long {
     width: 100%; /* Full width for responsive behavior */
-    max-width: 435px; /* Maximum width */
+    max-width: 425px; /* Maximum width */
 }
 
 .star_btn:active {
@@ -23,7 +23,7 @@
 /*multiply*/
 .multiply_input {
     border: 2px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
-    width: 105px;
+    width: 115px;
     height: 50px;
     font-size: 15px;
     border-radius: 5px;
@@ -43,16 +43,17 @@
 }
 
 /*tab*/
+
 .tab_con_view {
     width: 100%;
-    max-width: calc(100vw - 12.5em); /* Adjust max-width based on viewport */
+    /* max-width: calc(100vw - 12.5em); */ /* 레이어 뷰 영역 최대 사이즈 지정 CSS */
     height: auto;
-    display: none; /* 기본적으로 모든 tab_content는 숨김 */
+    display: none; 
 }
 
 .tab_img_view {
     width: 100%;
-    max-width: calc(100vw - 12.5em); /* Adjust max-width based on viewport */
+    /* max-width: calc(100vw - 12.5em); */ /* 레이어 뷰 영역 최대 사이즈 지정 CSS */
     height: 300px;
 }
 
@@ -134,7 +135,7 @@
 	padding: 20px;
 	border: 1px solid #ccc;
 	z-index: 1000;
-	max-width: 45%;
+	max-width: 60%;
 	max-height: 90%;
     overflow: auto; /* Hide scrollbars */
 }
@@ -159,7 +160,7 @@
 
 /*comment*/
 .comment_img {
-    width: 50%;
+    width: 80%;
 }
 
 .commont {
@@ -177,4 +178,62 @@
     font-size: 15px;
     border-radius: 0px;
     margin: 2px;
+}
+
+/*모바일 전용 사이드 바 CSS */
+@media only screen and (max-width: 1000px) {
+
+	.tab_btn_area{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between; /* Adjust as per your layout needs */
+		align-items: center; /* Align items vertically */
+	}
+
+	.tab_btn {
+		font-size: 1.4rem;
+		width: 155px;
+		height: 80px;
+		margin: 2px;
+	}
+	.star_btn {
+		border: 2px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+		width: 175px;
+		height: 80px;
+		font-size: 1.6rem;
+		border-radius: 5px;
+		margin: 0px 0px 20px 20px;
+
+	}
+	.star_btn_long {
+		width: 100%; /* Full width for responsive behavior */
+		max-width: 490px; /* Maximum width */
+	}
+
+	.star_btn:active {
+		background: #ddd;
+		font-size: 1.6rem;
+		border: 0;
+		border-radius: 5px;
+	}
+	.multiply_input {
+		width: 105px;
+		height: 80px;
+		border-radius: 5px;
+		font-size: 2.5rem;
+		padding-left: 10px;
+	}
+
+	.multiply_input_long {
+		width: 100%; /* Full width for responsive behavior */
+		max-width: 280px; /* Maximum width */
+	}
+	.comment_img {
+		width: 100%;
+	}
+	.popup {
+		max-width: 75%;
+
+	}
+
 }

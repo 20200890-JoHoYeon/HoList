@@ -8,7 +8,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #fff;
-	padding-top: 10px;
 	overflow-x: hidden;
 
 }
@@ -19,7 +18,7 @@ h2 {
 }
 
 /* Adjust paragraph font size */
-p {
+p1 {
     font-size: 1rem;
 }
 
@@ -63,6 +62,7 @@ a {
 }
 
 #main_nav_area{
+	display: block;
     margin: 30px;
 }
 #main_nav_area .main_nav_menu {
@@ -77,8 +77,8 @@ a {
 	background-color: transparent;
 }
 
-/*모바일 전용 사이드 바 PC 사이즈에서 가리기*/
-#mobile_side_nav_area{
+/*모바일 전용 네비바 PC 사이즈에서 가리기*/
+#mobile_side_nav_area, #mobile_main_nav_area {
 	display: none;
 }
 
@@ -86,18 +86,22 @@ a {
 	min-height: 100vh;
 	height: auto;
 	display: block;
-	width: 260px;
+	width: 300px;
     background-color: #333;
     color: #fff;
     padding: 20px;
+	display: flex; /* Flexbox 레이아웃을 사용합니다 */
+    align-items: center; /* 세로 방향 중앙 정렬 */
+	flex-direction: column;
 }
+
 
 .accordion {
 	display: block;
 	background-color: #444;
     border-radius: 5px;
     padding: 20px;
-	margin: 10px 20px 10px 0px;
+	margin: 10px 0px ;
     resize: none;
 	color: #fff;
 }
@@ -125,7 +129,7 @@ a {
 	background-color: #222;
     border-radius: 5px;
     padding: 20px;
-	margin: 10px 20px 10px 0px;
+	margin: 10px 0px ;
     resize: none;
 	display: none;
 }
@@ -149,12 +153,7 @@ a {
     padding: 10px 20px;
 }
 
-#main_side_nav_area  {
-    display: flex; /* Flexbox 레이아웃을 사용합니다 */
-    align-items: center; /* 세로 방향 중앙 정렬 */
-	flex-direction: column;
-    
-}
+
 
 #main_con_area {
     width:100%;
@@ -207,54 +206,97 @@ a {
 
 /*모바일 전용 사이드 바 CSS */
 @media only screen and (max-width: 1000px) {
-	/*PC 전용 사이드 바 모바일 사이즈에서 가리기*/
-	#main_side_nav_area {
+	/*bd*/
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	/*PC 전용 네비바 모바일 사이즈에서 가리기*/
+	#main_side_nav_area, #main_nav_area{
 		display:none;
 	}
+
+	#mobile_main_nav_area{
+		display:block;
+		padding: 30px;
+		
+	}
+	
+	.main_logo_a {
+		margin-bottom: 10px 0px;
+		font-size: 3.5rem;
+	}
+
+	/*메인 메뉴바 메뉴 속성 설정(프론트, 백엔드, 메일, 결재)*/
+	#mobile_main_nav_area .main_nav_menu {
+		text-decoration: none;
+		padding: 5px 20px;
+		color: #000;
+		font-size: 1.55rem;
+	}
+
+
 	#mobile_side_nav_area{
 		display: block;
 		width: 100%;
 		height: auto;
-
+		display: block;
 		background-color: #333;
 		color: #fff;
 		padding: 20px;
 	}
+
+	.clickmenu{
+		display: none;
+	}
+		
+
 	.s_menu, .l_menu_a, .accordion{
-	display: none;
-	cursor: pointer; /* 기본 마우스 커서를 포인터로 설정 */
+
 	}
 	.s_menu_a{
-		width: 120px;
-		display: block;
-		color: #fff;
-		padding: 10px 10px;
+
 	}
 	.s_menu_a:hover {
-		background-color: #555;
+
 	}
 	.accordion {
-		display: block;
-		background-color: #444;
-		border-radius: 5px;
-		padding: 20px;
-		margin: 10px 20px 10px 0px;
-		resize: none;
-		display: none;
-		color: #fff;
+
 	}
 
-	.l_menu_a {
-		width: 180px;
+	#mobile_side_nav_area .l_menu_a {
+		width: auto;
 		display: none;
 		color: #fff;
 		text-decoration: none;
 		padding: 10px 10px;
 	}
+	
 
-
-	.l_menu_a:hover {
+	#mobile_side_nav_area .l_menu_a:hover {
 		background-color: #555;
+	}
+	/* Make all headings responsive */
+	h2 {
+		font-size: 2rem;
+		
+	}
+
+	/* Adjust paragraph font size */
+	p1 {
+		font-size: 1.5rem;
+	}
+
+	/* Ensure links are styled properly */
+	a, h5, div {
+		text-decoration: none;
+		color: black;
+		font-size: 1.6rem;
+	}
+	.message_noti{
+		font-size: 1.6rem;
+
 	}
 
 }

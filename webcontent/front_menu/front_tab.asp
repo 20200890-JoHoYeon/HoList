@@ -6,7 +6,7 @@
 <div id="main_con_area_notis">
 	<div class="main_con_area_noti star_con_area tab_con_area">
 		<h2 class="message_noti">컨텐츠 뷰</h2><br>
-		<div class="message_noti">
+		<div class="message_noti tab_btn_area">
 			<button class="tab_btn active" data-tab="introduction" onclick="fntabSChange('introduction')">자기소개</button>
 			<button class="tab_btn" data-tab="project_a" onclick="fntabSChange('project_a')">프로젝트 - 1</button>
 			<button class="tab_btn" data-tab="project_b" onclick="fntabSChange('project_b')">프로젝트 - 2</button>

@@ -149,3 +149,24 @@ textarea {
 	padding: 0px 20px;
 	justify-content: space-between;
 }
+
+
+/*모바일 전용 사이드 바 CSS */
+@media only screen and (max-width: 1000px) {
+	input[type="text"], textarea {
+		font-size: 1.2em;
+	}
+
+	.gray_btn, .gray_btn:active {
+		width: 175px;
+		height: 80px;
+		font-size: 1.6rem;
+		border-radius: 15px;
+	}
+
+	.button-container{
+		display: flex;
+		padding: 0px 20px;
+		justify-content: space-around;
+	}
+}

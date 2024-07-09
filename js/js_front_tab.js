@@ -1,6 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-	 fntabSChange("introduction")
-});
 function fntabSChange(shapeId) {
 
 	// 모든 tab_content 숨기기
