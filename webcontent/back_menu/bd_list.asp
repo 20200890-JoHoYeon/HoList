@@ -6,7 +6,7 @@
 				<tr>
 					<th>번호</th>
 					<th class="tb_title">제목</th>
-					<th class="tb_title">작성자</th>
+					<th class="tb_write">작성자</th>
 					<th>작성일</th>
 				</tr>
 			</thead>
@@ -14,14 +14,18 @@
 
 			</tbody>
 		</table>
+
+		
+		<!-- Pagination controls -->
 		<div id="pagination">
-			<button id="prevBtn">이전</button>
-			<button id="nextBtn">다음</button>
-			<button id="nextBtn" onclick="fnCheckMenu('bd_write')">게시글 작성</button>
+			<button id="prevBtn" class="gray_btn">이전</button>
+			<button id="nextBtn" class="gray_btn">다음</button>
+			<!-- 게시글 작성 버튼 추후 하나만 남길 예정-->
+			<button class="gray_btn" onclick="fnCheckMenu('bd_write')">게시글 작성</button>
 		</div>
 
-		<!-- Pagination controls -->
+		<!-- 게시글 작성 버튼 추후 하나만 남길 예정-->
 		<button class="reg_btn"onclick="fnCheckMenu('bd_write')">게시글 작성</button>
-
 	</div>
 </div>
+<script src="/board/js/js_bd_list.js"></script>

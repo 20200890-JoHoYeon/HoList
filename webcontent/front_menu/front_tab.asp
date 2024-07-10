@@ -150,3 +150,4 @@
 		</div><br><br>
 	</div>
 </div>
+<script src="/board/js/js_front_tab.js"></script>

@@ -19,11 +19,10 @@
         <!-- #include virtual = "/board/DTD/main_side_nav.asp" -->
         <div id="main_con_area">
             <script>
-				// js_DTD_side_nav.js
 				function fnCheckMenu(menuName, postId) {
-					console.log("PostId(디폴트 페이지): " + postId)
+console.log("PostId(디폴트 페이지): " + postId)
 					sessionStorage.setItem('menuName', menuName); 
-					console.log("선택한 서브 메뉴 세션(디폴트 페이지): " + menuName);
+console.log("선택한 서브 메뉴 세션(디폴트 페이지): " + menuName);
 					let mainConArea = document.getElementById('main_con_area');
 					mainConArea.innerHTML = ''; // Clear existing content
 					console.log(menuName);
@@ -93,19 +92,10 @@
 	<script src="/board/js/js_DTD_main_nav.js"></script>
 	<script src="/board/js/js_DTD_side_nav.js"></script>
 	<script src="/board/js/js_DTD_mobile_main_nav.js"></script>
-	<!--백엔드 메뉴 (게시판 더미 데이터, 리스트 조회 페이지, 상세 조회 페이지, 등록 페이지)-->
-	<script src="/board/js/js_bd_dummyData.js"></script>
-	<script src="/board/js/js_bd_list.js"></script>
-	<script src="/board/js/js_bd_view.js"></script>
-	<script src="/board/js/js_bd_write.js"></script>
-	<!--프론트 메뉴 (별모양 페이지, 구구단 페이지, 탭메뉴 페이지, 레이어팝업 페이지, 덧글달기 페이지, 팝업입력 페이지)-->
-	<script src="/board/js/js_front_star.js"></script>
-	<script src="/board/js/js_front_multuply.js"></script>
-	<script src="/board/js/js_front_tab.js"></script>
-	<script src="/board/js/js_front_popup.js"></script>
-	<script src="/board/js/js_front_comment.js"></script>
-	<script src="/board/js/js_front_popupInput.js"></script>
 	<!--초기값 설정 스크립트 (네비바 초기값 세팅)-->
 	<script src="/board/js/js_Initial_value_settings.js"></script>
+	<!--백엔드 메뉴 (게시판 더미 데이터)-->
+	<script src="/board/js/js_bd_dummyData.js"></script>
+
 </body>
 </html>

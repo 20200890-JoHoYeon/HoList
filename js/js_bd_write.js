@@ -1,3 +1,4 @@
+postId = "";
 function cancelFunction() {
 	
 	if (postId == null) {
@@ -31,6 +32,7 @@ function regFunction() {
 	console.log(document.querySelector('#txtTitle').value);
 	fnCheckMenu('bd_list');
 }
+/*
 document.addEventListener('DOMContentLoaded', function() {
 	//let urlParams = new URLSearchParams(window.location.search);
 	//postId = urlParams.get('id');
@@ -74,3 +76,4 @@ document.addEventListener('DOMContentLoaded', function() {
 		btnElement.value="등록"
 	}
 });
+*/

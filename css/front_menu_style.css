@@ -84,9 +84,6 @@
 /*pop*/
 .pop_con_view {
     display: block;
-    width: 100%;
-    max-width: calc(100vw - 5em); /* Adjust max-width based on viewport */
-    height: auto;
 }
 
 .pop_btn_area {

@@ -23,5 +23,5 @@
 		</table>
 	</div>
 </div>
-
+<script src="/board/js/js_bd_view.js"></script>
 				

@@ -31,16 +31,14 @@ tbody th {
     background-color: #fff; /* 배경색 추가 */
 }
 
-.tb_title {
-    min-width: 7rem; /* Adjusted for responsiveness */
-}
+
 
 /* 특정 열의 최소 너비 조정 */
 .tb_title {
-    max-width: 30rem;
+     min-width: 17rem; /* Adjusted for responsiveness */
 }
 .tb_write {
-    max-width: 20rem;
+     min-width: 5rem; /* Adjusted for responsiveness */
 }
 
 
@@ -62,25 +60,7 @@ tbody th {
 }
 
 
-#prevBtn, #nextBtn {
-    width: 100px;
-    height: 40px;
-    font-size: 15px;
-    border: 0;
-    border-radius: 5px;
-	margin: 0px 15px;
-}
 
-#prevBtn:active, #nextBtn:active {
-	background: #ddd;
-    width: 100px;
-    height: 40px;
-    font-size: 15px;
-    border: 0;
-    border-radius: 5px;
-
-
-}
 #pagination{
 	display: flex;
 	justify-content: center;
@@ -154,7 +134,7 @@ textarea {
 /*모바일 전용 사이드 바 CSS */
 @media only screen and (max-width: 1000px) {
 	input[type="text"], textarea {
-		font-size: 1.2em;
+		font-size: 1.6rem;
 	}
 
 	.gray_btn, .gray_btn:active {
@@ -168,5 +148,10 @@ textarea {
 		display: flex;
 		padding: 0px 20px;
 		justify-content: space-around;
+	}
+	.reg_btn{
+		width: 220px;
+		height: 90px;
+		font-size: 1.6rem;
 	}
 }

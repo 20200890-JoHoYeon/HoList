@@ -22,3 +22,4 @@
 		</form>
 	</div>
 </div>
+<script src="/board/js/js_bd_write.js"></script>

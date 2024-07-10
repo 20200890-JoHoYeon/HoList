@@ -51,3 +51,4 @@
 	</div>
 <!-- Overlay for background click close -->
 <div class="popup-overlay" onclick="fncloseAllPopups()"> <span class="popup-close" onclick="fntogglePopup('project_a')">&times;</span></div>
+<script src="/board/js/js_front_popupInput.js"></script>

@@ -13,4 +13,5 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	let menuName = sessionStorage.getItem('menuName') || 'front_star';
 	fnCheckMenu(menuName);
+
 });

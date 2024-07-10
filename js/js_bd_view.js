@@ -1,14 +1,16 @@
+
 function cancelFunction() {
-	window.location.href = 'bd_list.asp'; // 취소 버튼 클릭 시 bd_list.asp 페이지로 이동
+	fnCheckMenu('bd_list');// 취소 버튼 클릭 시 bd_list.asp 페이지로 이동
 }
 function regFunction() {
-	window.location.href = 'bd_write.asp?id=' + postId; // 등록 버튼 클릭 시 bd_write.asp 페이지로 postId 값 가지고 이동
+	//window.location.href = 'bd_write.asp?id=' + postId; // 등록 버튼 클릭 시 bd_write.asp 페이지로 postId 값 가지고 이동
 }
 function deleteFunction() {	
 	if (confirm("삭제하시겠습니까?") == false) return false;
-	window.location.href = 'bd_list.asp'; 
+	fnCheckMenu('bd_list');// 취소 버튼 클릭 시 bd_list.asp 페이지로 이동
 }
-let postId;
+/*
+let = postId; // 문제 있어보임
 document.addEventListener('DOMContentLoaded', function() {
 	
 	// URL에서 id 값을 가져옵니다.
@@ -34,3 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
 	console.log("postId:", postId);
 	}
 });
+*/
