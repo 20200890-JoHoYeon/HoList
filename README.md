@@ -1,6 +1,6 @@
 # HoList
 
-ASP-based bulletin board and front-end design projects and hands-on work developed as Windows Local hosts through IIS.
+ASP-based bulletin board and front-end design projects and hands-on work developed as Windows Local hosts through IIS
 
 # development stack :question:
 
