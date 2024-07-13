@@ -19,83 +19,103 @@
         <!-- #include virtual = "/board/DTD/main_side_nav.asp" -->
         <div id="main_con_area">
             <script>
-				function fnCheckMenu(menuName, postId) {
-console.log("PostId(디폴트 페이지): " + postId)
+				function fnCheckMenu(menuName) {
 					sessionStorage.setItem('menuName', menuName); 
-console.log("선택한 서브 메뉴 세션(디폴트 페이지): " + menuName);
+					console.log("선택한 서브 메뉴 세션(디폴트 페이지): " , menuName);
 					let mainConArea = document.getElementById('main_con_area');
-					mainConArea.innerHTML = ''; // Clear existing content
-					console.log(menuName);
+					mainConArea.innerHTML = ''; // 초기화
 					switch(menuName) {
 						case 'front_star':
 							loadContent('/board/webcontent/front_menu/front_star.asp');
+							
 							break;
 						case 'front_multiply':
 							loadContent('/board/webcontent/front_menu/front_multiply.asp');
+			
 							break;
 						case 'front_tab':
 							loadContent('/board/webcontent/front_menu/front_tab.asp');
+					
 							break;
 						case 'front_popup':
 							loadContent('/board/webcontent/front_menu/front_popup.asp');
+		
 							break;
 						case 'front_comment':
 							loadContent('/board/webcontent/front_menu/front_comment.asp');
+					
 							break;
 						case 'front_popupInput':
 							loadContent('/board/webcontent/front_menu/front_popupInput.asp');
-							break;			
+						
+							break;            
 						case 'bd_noti':
 							loadContent('/board/webcontent/back_menu/bd_noti.asp');
+							
 							break;
 						case 'bd_list':
 							loadContent('/board/webcontent/back_menu/bd_list.asp');
+		
 							break;
-						// 게시판 리스트(조회) 내부 메뉴 -> (상세조회) (작성, 수정)
 						case 'bd_write':
 							loadContent('/board/webcontent/back_menu/bd_write.asp');
+
 							break;
 						case 'bd_view':
 							loadContent('/board/webcontent/back_menu/bd_view.asp');
+				
 							break;
 						default:
 							loadContent('/board/webcontent/front_menu/front_star.asp');
+							
 							break;
-						}
 					}
+				}
 
-					function loadContent(url) {
-						let xhr = new XMLHttpRequest();
-						xhr.onreadystatechange = function() {
-							if (xhr.readyState === XMLHttpRequest.DONE) {
-								if (xhr.status === 200) {
-									let content = xhr.responseText;
-									let mainConArea = document.getElementById('main_con_area');
-									mainConArea.innerHTML = ''; 
-									let newContent = document.createElement('div');
-									newContent.innerHTML = content;
-									newContent.classList.add('main_content_div');
-									mainConArea.appendChild(newContent);
-								} else {
-									console.error('Failed to load content: ' + xhr.status);
-								}
+				function loadContent(url) {
+					fetch(url)
+						.then(response => {
+							if (!response.ok) {
+								throw new Error('Network response was not ok');
 							}
-						};
-						xhr.open('GET', url, true);
-						xhr.send();
-					}
+							return response.text();
+						})
+						.then(content => {
+							let mainConArea = document.getElementById('main_con_area');
+							mainConArea.innerHTML = '';
+							mainConArea.innerHTML = content;
 
+							// Remove existing scripts
+							const existingScripts = document.querySelectorAll('body > script');
+							existingScripts.forEach(script => script.remove());
+
+							// Execute new scripts
+							const scripts = mainConArea.getElementsByTagName('script');
+							Array.from(scripts).forEach(script => {
+								const newScript = document.createElement('script');
+								if (script.src) {
+									newScript.src = script.src;
+								} else {
+									newScript.text = script.innerText;
+								}
+								document.body.appendChild(newScript);
+							});
+						})
+						.catch(error => {
+							console.error('Error fetching content:', error);
+						});
+				}	
             </script>
+
         </div>
     </div>
-	<!--네비바 (최상단 메인 네비바, 사이드 네비바, 모바일 전용 사이드 네비바)-->
-	<script src="/board/js/js_DTD_main_nav.js"></script>
-	<script src="/board/js/js_DTD_side_nav.js"></script>
-	<script src="/board/js/js_DTD_mobile_main_nav.js"></script>
-	<!--초기값 설정 스크립트 (네비바 초기값 세팅)-->
-	<script src="/board/js/js_Initial_value_settings.js"></script>
-	<!--백엔드 메뉴 (게시판 더미 데이터)-->
-	<script src="/board/js/js_bd_dummyData.js"></script>
-
+    <!-- 네비바 (최상단 메인 네비바, 사이드 네비바, 모바일 전용 사이드 네비바) -->
+    <script src="/board/js/js_DTD_main_nav.js" ></script>
+    <script src="/board/js/js_DTD_side_nav.js" ></script>
+    <script src="/board/js/js_DTD_mobile_main_nav.js" ></script>
+    <!--  백엔드 메뉴 (게시판 더미 데이터, 게시판 공통 사용 변수) -->
+    <script src="/board/js/js_bd_value_settings.js" ></script>
+	<!--  초기값 설정 스크립트 (네비바 초기값 세팅) -->
+    <script src="/board/js/js_Initial_value_settings.js"></script>
 </body>
 </html>

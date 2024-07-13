@@ -14,7 +14,7 @@
 					<div class="button-container">
 						<input class="gray_btn" type="button" value="취소" onclick="cancelFunction()">
 						<div>
-							<input class="gray_btn" type="button" value="수정" onclick="regFunction()">
+							<input class="gray_btn" type="button" value="수정" onclick="editFunction()">
 							<input class="gray_btn" type="button" value="삭제" onclick="deleteFunction()">								
 						</div>
 					</div>	
@@ -23,5 +23,49 @@
 		</table>
 	</div>
 </div>
-<script src="/board/js/js_bd_view.js"></script>
-				
+<script>
+
+
+	selectPostId = localStorage.getItem('postId');
+	console.log('Stored selectPostId:', selectPostId);
+
+	
+	postData = dummyData.find(function(data) {
+		return data['번호'] == selectPostId;
+	});
+
+
+	console.log('ddd',postData['내용']);
+
+	function fnPostDataPrint() {
+		
+		if (postData) {
+			document.querySelector('input[name="title"]').value = postData['제목'];
+			document.querySelector('input[name="date"]').value = postData['작성일'];
+			document.querySelector('input[name="writer"]').value = postData['작성자'];
+			document.querySelector('textarea[name="detail"]').value = postData['내용'];
+			document.querySelector('input[name="title"]').style.border = 'none';
+			document.querySelector('input[name="date"]').style.border = 'none';
+			document.querySelector('input[name="writer"]').style.border = 'none';
+			document.querySelector('textarea[name="detail"]').style.border = 'none';
+
+		}
+
+	}
+
+	fnPostDataPrint();
+
+
+	function cancelFunction() {
+		fnCheckMenu('bd_list');// 취소 버튼 클릭 시 bd_list.asp 페이지로 이동
+	}
+	function editFunction() {
+		fnCheckMenu('bd_write');
+		regModeYN ='N';
+			console.log('-------------------regModeYN: ',regModeYN);
+	}
+	function deleteFunction() {	
+		if (confirm("삭제하시겠습니까?") == false) return false;
+		fnCheckMenu('bd_list');// 취소 버튼 클릭 시 bd_list.asp 페이지로 이동 
+	}
+</script>

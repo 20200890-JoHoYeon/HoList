@@ -15,3 +15,15 @@ let dummyData = [
 	{ 번호: 14, 제목: '열 네 번째 게시글 제목', 작성자: '작성자14', 작성일: '2024-07-14', 내용: '열 네 번째 게시글 내용입니다.' },
 	{ 번호: 15, 제목: '열 다섯 번째 게시글 제목', 작성자: '작성자15', 작성일: '2024-07-15', 내용: '열 다섯 번째 게시글 내용입니다.' },
 ];
+
+	// 세션에 저장된 postId 값 가져오기
+	let selectPostId = localStorage.getItem('postId');
+	console.log('Stored selectPostId:', selectPostId);
+
+
+	// postId로 해당 게시물 데이터를 찾습니다.
+	let postData = dummyData.find(function(data) {
+		return data['번호'] == selectPostId;
+	});
+
+	let regModeYN ='N';
