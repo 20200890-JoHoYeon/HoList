@@ -31,10 +31,6 @@
 	</div>
 </div>
 <script>
-	//작성자 임의로 세션 생성
-	let username = "조호연";
-	sessionStorage.setItem("username", username);
-
 	function handleKeyDown(event) {
 		if (event.key === "Enter") {
 			event.preventDefault(); // 엔터 키 기본 동작 방지 (폼 제출 방지)
@@ -43,6 +39,10 @@
 	}
 
 	function fnAddComment() {
+		//작성자 임의로 세션 생성
+		let username = "조호연";
+		sessionStorage.setItem("username", username);
+
 		let now = new Date();
 		let year = now.getFullYear();
 		let month = now.getMonth() + 1;

@@ -1,6 +1,6 @@
 /*star*/
 .star_btn {
-    border: 2px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+    border: 2px solid rgba(0, 0, 0, 0.1); 
     width: 105px;
     height: 50px;
     font-size: 15px;
@@ -9,8 +9,8 @@
 }
 
 .star_btn_long {
-    width: 100%; /* Full width for responsive behavior */
-    max-width: 425px; /* Maximum width */
+    width: 100%; 
+    max-width: 425px; 
 }
 
 .star_btn:active {
@@ -22,7 +22,7 @@
 
 /*multiply*/
 .multiply_input {
-    border: 2px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+    border: 2px solid rgba(0, 0, 0, 0.1); 
     width: 115px;
     height: 50px;
     font-size: 15px;
@@ -33,8 +33,8 @@
 }
 
 .multiply_input_long {
-    width: 100%; /* Full width for responsive behavior */
-    max-width: 290px; /* Maximum width */
+    width: 100%; 
+    max-width: 290px; 
 }
 
 .multiply_input_wave {
@@ -46,30 +46,30 @@
 
 .tab_con_view {
     width: 100%;
-    /* max-width: calc(100vw - 12.5em); */ /* 레이어 뷰 영역 최대 사이즈 지정 CSS */
+    
     height: auto;
     display: none; 
 }
 
 .tab_img_view {
     width: 100%;
-    /* max-width: calc(100vw - 12.5em); */ /* 레이어 뷰 영역 최대 사이즈 지정 CSS */
+    
     height: 300px;
 }
 
 .tab_project_img {
     width: 100%;
-    max-width: calc(100vw - 12.5em); /* Adjust max-width based on viewport */
+    max-width: calc(100vw - 12.5em); 
 }
 
 
 .tab_btn {
     border: 0;
-    border-bottom: 2px solid rgba(0, 0, 0, 1); /* 반투명한 검정색 border */
+    border-bottom: 2px solid rgba(0, 0, 0, 1); 
     width: 125px;
     height: 60px;
     background: #fff;
-    font-weight: normal; /* 기본 폰트 굵기 */
+    font-weight: normal; 
     font-size: 15px;
     border-radius: 0px;
     margin: 2px;
@@ -77,8 +77,8 @@
 
 .tab_btn.active {
     color: tomato;
-    font-weight: bold; /* 활성화된 버튼의 폰트 굵기 */
-    border-bottom-color: tomato; /* 활성화된 버튼의 바텀 보더 색상 */
+    font-weight: bold;
+    border-bottom-color: tomato;
 }
 
 /*pop*/
@@ -89,28 +89,28 @@
 .pop_btn_area {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Adjust as per your layout needs */
-    align-items: center; /* Align items vertically */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .pop_btn {
     border: 0;
     background: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
     cursor: pointer;
     width: 100%;
-    max-width: calc(100vw - 1.5em); /* Adjust max-width based on viewport */
+    max-width: calc(100vw - 1.5em); 
     margin: 0px 20px;
     height: auto;
 }
 
 .pop_img {
-    width: 100%; /* Ensure the image fills its container */
-    height: 100%; /* Ensure the image fills its container */
-    display: block; /* Ensures any extra space due to aspect ratio is respected */
-    object-fit: cover; /* Crop the image to cover the entire container */
+    width: 100%; 
+    height: 100%;
+    display: block;
+    object-fit: cover; 
 }
-/* Optional: CSS for hiding popup initially */
+
 .popup-overlay {
 	display: none;
 	position: fixed;
@@ -118,7 +118,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+	background-color: rgba(0, 0, 0, 0.5); 
 	z-index: 999;
 }
 
@@ -134,8 +134,9 @@
 	z-index: 1000;
 	max-width: 60%;
 	max-height: 90%;
-    overflow: auto; /* Hide scrollbars */
+    overflow: auto; 
 }
+
 
 .popup-close {
 	position: absolute;
@@ -148,8 +149,8 @@
 
 /*popupInput*/
 .popup_input {
-    width: 100%; /* Full width for responsive behavior */
-    max-width: 290px; /* Maximum width */
+    width: 100%; 
+    max-width: 290px; 
     font-size: 15px;
     margin-bottom: 20px;
 }
@@ -166,12 +167,12 @@
 
 .comment_area {
     border: 0;
-    border-bottom: 2px solid rgba(0, 0, 0, 1); /* 반투명한 검정색 border */
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
     width: 100%;
-    max-width: 125px; /* Maximum width */
+    max-width: 125px;
     height: 60px;
     background: #fff;
-    font-weight: normal; /* 기본 폰트 굵기 */
+    font-weight: normal;
     font-size: 15px;
     border-radius: 0px;
     margin: 2px;
@@ -183,8 +184,8 @@
 	.tab_btn_area{
 		display: flex;
 		flex-direction: row;
-		justify-content: space-between; /* Adjust as per your layout needs */
-		align-items: center; /* Align items vertically */
+		justify-content: space-between; 
+		align-items: center; 
 	}
 
 	.tab_btn {
@@ -194,7 +195,7 @@
 		margin: 2px;
 	}
 	.star_btn {
-		border: 2px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
+		border: 2px solid rgba(0, 0, 0, 0.1); 
 		width: 175px;
 		height: 80px;
 		font-size: 1.6rem;
@@ -222,8 +223,8 @@
 	}
 
 	.multiply_input_long {
-		width: 100%; /* Full width for responsive behavior */
-		max-width: 280px; /* Maximum width */
+		width: 100%; 
+		max-width: 280px; 
 	}
 	.comment_img {
 		width: 100%;

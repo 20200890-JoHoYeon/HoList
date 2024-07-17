@@ -1,10 +1,11 @@
 /*bd_view*/
 table {
-    width: 100%;
+	width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
     margin-bottom: 1rem;
     overflow-x: auto;
+	
 }
 th, td {
     padding: 1rem;
@@ -23,28 +24,23 @@ tbody tr:last-child td {
     border-bottom: 0; 
 }
 
-/* 좌측 고정 헤더 스타일 */
-thead th
-tbody th {
-    position: sticky;
-    left: 0;
-    background-color: #fff; /* 배경색 추가 */
-}
+
 
 
 
 /* 특정 열의 최소 너비 조정 */
 .tb_title {
-     min-width: 17rem; /* Adjusted for responsiveness */
+     min-width: 17rem;
+	 cursor:pointer;
 }
 .tb_write {
-     min-width: 5rem; /* Adjusted for responsiveness */
+     min-width: 5rem; 
 }
 
 
 .reg_btn{
 	box-shadow: 0px 8px 6px -6px #666;
-	border: 6px solid  #2F2F2F; /* 반투명한 검정색 border */
+	border: 6px solid  #2F2F2F;
 	position: fixed;
 	width: 150px;
 	height: 60px;
@@ -56,17 +52,15 @@ tbody th {
 	border-radius: 100px;
 	font-size: 17.5px;
 	font-weight: bold;
-	z-index: 9999; /* 최상위로 설정할 z-index 값 */
+	z-index: 9999; 
 }
-
 
 
 #pagination{
 	display: flex;
 	justify-content: center;
-	margin-bottom: 1rem; /* Space below pagination */
+	margin-bottom: 1rem;
 }
-
 
 
 table {
@@ -74,28 +68,53 @@ table {
 	
 }
 
-input[type="text"], textarea {
+.bd_input {
     font-size: 15px;
     border: 1.5px #aaa solid;
     border-radius: 5px;
-    padding: 10px;
-    width: 100%; /* Take full width on small screens */
-    max-width: 100%; /* Ensure they don't overflow */
-    resize: vertical; /* Allow vertical resizing for textarea */
-    margin-bottom: 1rem; /* Space below inputs */
+    padding: 15px;
+    width: 100%; 
+    max-width: 100%; 
+    resize: vertical;
+    margin-bottom: 1rem; 
 	resize: none;
 	outline: none;
 }
 
-textarea {
-    height: 500px;
+.bd_input_con {
+	height:500px;
+	width: 100%; 
+	resize: none;
 }
+.bd_view_input_con {
+	height:300px;
+	width: 100%; 
+	resize: none;
+}
+
+.bd_view_input {
+	font-size: 15px;
+	border:none;
+	outline:none;
+}
+
+.bd_view_input_mod_date_area{
+	font-size: 15px;
+}
+
+.bd_view_input_mod_date {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
 /* 헤더 스타일 */
 .header {
-    height: 50px; /* 높이 */
-    line-height: 50px; /* 세로 가운데 정렬 */
-    text-align: center; /* 가운데 정렬 */
-    background-color: #f2f2f2; /* 배경색 */
+	width: 20%;
+    height: 50px;
+    line-height: 50px; 
+    text-align: center; 
+    background-color: #f2f2f2; 
 
 }
 .gray_btn {
@@ -115,21 +134,85 @@ textarea {
     border: 0;
     border-radius: 5px;
 }
-.write_table_area{
-	background: #fff;
-    
+
+.bd_view_btn {
+	background: none;
+	border-radius: 0px;
+	font-weight: bold;
+	width: 50px;
+    height: 40px;
+	border: 0;
+	margin: 0px 5px;
 }
+
+.bd_view_delete_btn, .bd_view_delete_btn:hover {
+	color: red;	
+}
+
+.bd_view_btn:active, .bd_view_delete_btn:active {
+	background: none;
+}
+
+
+.bd_view_btn:hover {
+	color: tomato;
+    width: 50px;
+    height: 40px;
+}
+
+
 .button-container{
 	display: flex;
-	padding: 0px 20px;
+	align-items: center;
 	justify-content: space-between;
 }
 
 
+.table-responsive {
+	overflow-x: auto;
+	width: 100%;
+}
+
+.bd_view_comment_area {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bd_view_comment_btn {
+	margin:0;
+	width: 140px;
+	height: 90px;
+}
+.bd_view_comment_textarea {
+	max-width: calc(100% - 10%);
+	height: 100px;
+	resize: none;
+	padding: 10px;
+	font-size: 15px;
+}
+
+.bd_comment_list_area {
+    border-radius: 5px;
+    padding: 15px;
+}
+
+
+
 /*모바일 전용 사이드 바 CSS */
 @media only screen and (max-width: 1000px) {
-	input[type="text"], textarea {
-		font-size: 1.6rem;
+
+	.bd_input, .bd_view_input_mod_date_area, .bd_view_input {
+		font-size: 1.8rem;
+		resize: none;
+		outline: none;
+	}
+	.bd_view_input_mod_date {
+		font-size: 1rem;
+	}
+	.bd_input_con {
+		height:500px;
+		width: 100%; 
 	}
 
 	.gray_btn, .gray_btn:active {
@@ -142,11 +225,28 @@ textarea {
 	.button-container{
 		display: flex;
 		padding: 0px 20px;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
+
 	.reg_btn{
 		width: 220px;
 		height: 90px;
 		font-size: 1.6rem;
+	}
+
+	.bd_view_btn {
+		background: none;
+		border-radius: 0px;
+		font-weight: bold;
+		width: 50px;
+		height: 40px;
+	}
+
+	.bd_view_btn:hover {
+		color: tomato;
+
+	}
+	.bd_view_comment_textarea {
+		font-size: 1.8rem;
 	}
 }

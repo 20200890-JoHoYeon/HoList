@@ -1,21 +1,58 @@
+<!-- #include virtual = "/import/dbOpen.asp"-->
+
 <div id="main_con_area_notis">
 	<div class="main_con_area_noti">
 		<span><h2 class="message">게시글 리스트</h2></span>
-		<table id="boardTable">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th class="tb_title">제목</th>
-					<th class="tb_write">작성자</th>
-					<th>작성일</th>
-				</tr>
-			</thead>
-			<tbody id="tbDataArea">
-				
-			</tbody>
-		</table>
+			
+	<%
+		Set Rs = Server.CreateObject("ADODB.Recordset")			
+	%>
+		<div class="table-responsive">
+			<table>
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td class="tb_title">제목</td>
+						<td class="tb_write">작성자</td>
+						<td>등록일</td>
+						<td>수정일</td>
+					</tr>
+				</thead>
+				<tbody id="tbDataArea">
+					<%
+						SQL = "select   Seq, Title, WriteId, writeName, RegDate, modDate "
+						SQL = SQL & "  from tbl_board "
+						SQL = SQL & " order by Seq desc"	
 
-		
+						Rs.Open SQL, conn, 0, 1, adCmdText				
+						If Rs.EOF Or Rs.BOF Then 
+								%>
+									<tr>
+										<td colspan="6">데이터가 없습니다.</td>
+									</tr>
+								<%
+							Else 
+								Do Until Rs.EOF		
+								%>
+								<tr onclick="fn_handle_title_Click('<%= Trim(Rs("Seq")) %>')">
+									<td><%= Trim(Rs("Seq")) %></td>
+									<td class="tb_title"><%= Trim(Rs("Title")) %></td>
+									<td><%= Trim(Rs("writeName")) %></td>
+									<td><%= FormatDateTime(CDate(Rs("RegDate")), vbShortDate) %></td>
+									<td><%= FormatDateTime(CDate(Rs("modDate")), vbShortDate) %></td>
+								</tr>				
+								<%
+								Rs.MoveNext
+								Loop 
+						End If 
+
+						Rs.close
+
+					%>
+				</tbody>
+			</table>
+		</div>
+
 		<!-- Pagination controls -->
 		<div id="pagination">
 			<button id="prevBtn" class="gray_btn">이전</button>
@@ -24,11 +61,11 @@
 			<button class="gray_btn" onclick="fnCheckMenu('bd_write')">게시글 작성</button>-->
 		</div>
 
-
 		<button class="reg_btn"onclick="regFunction()">게시글 작성</button>
 	</div>
 </div>
 <script>
+
 		
 	itemsPerPage = 10; // 페이지 당 표시할 게시물 수
 	currentPage = 1; // 현재 페이지 번호
@@ -37,58 +74,19 @@
 	console.log('itemsPerPage:', itemsPerPage);
 	console.log('currentPage:', currentPage);
 
-	console.log("dummyData",dummyData);
 	console.log("tbBody",tbBody);
 	
 	function regFunction() {
+		document.cookie = "regModeYN=" + 'Y' + "; path=/";
 		fnCheckMenu('bd_write');
-		regModeYN ='Y';
-		console.log('-------------------------regModeYN: ',regModeYN);
+		
 	}
-
-	function displayData() {
-		try {
-			let startIndex = (currentPage - 1) * itemsPerPage;
-			let endIndex = startIndex + itemsPerPage;
-			let displayItems = dummyData.slice(startIndex, endIndex);
-
-			tbBody.innerHTML = "";
-			displayItems.forEach(function(data) {
-				let row = document.createElement('tr');
-
-				let cell1 = document.createElement('td');
-				cell1.textContent = data['번호'];
-				row.appendChild(cell1);
-
-				let cell2 = document.createElement('td');
-				let titleLink = document.createElement('span');
-				titleLink.textContent = data['제목'];
-
-				titleLink.addEventListener('click', function() {
-					let postId = data['번호'];
-					localStorage.setItem('postId', postId);
-					console.log('클릭된 게시물 번호:', postId);
-					fnCheckMenu('bd_view');
-				});
-
-				cell2.appendChild(titleLink);
-				row.appendChild(cell2);
-
-				let cell3 = document.createElement('td');
-				cell3.textContent = data['작성자'];
-				row.appendChild(cell3);
-
-				let cell4 = document.createElement('td');
-				cell4.textContent = data['작성일'];
-				row.appendChild(cell4);
-
-				tbBody.appendChild(row);
-			});
-		} catch (error) {
-			console.error(error);
-		}
+	function fn_handle_title_Click(value) {
+		document.cookie = "PostId=" + value + "; path=/";
+		console.log('클릭된 게시물 번호:', value);
+		fnCheckMenu('bd_view');
 	}
-
+	/*
 	function setupPagination() {
 		let prevBtn = document.getElementById('prevBtn');
 		let nextBtn = document.getElementById('nextBtn');
@@ -102,21 +100,24 @@
 			
 			if (currentPage > 1) {
 				currentPage--;
-				displayData();
+				
 			}
 		});
 
 		nextBtn.addEventListener('click', function(event) {
 
 			if (currentPage < Math.ceil(dummyData.length / itemsPerPage)) {
-				currentPage++;
-				displayData();
+
 			}
 		});
 	}
 
 
-	displayData();
-	setupPagination();
 
+	setupPagination();
+	*/
 </script>
+<%
+	Set Rs = Nothing			' DB 의 Record 를 가져오는 객체 닫음 (메모리 close)
+	Set Conn = Nothing			' DB Open 을 닫아줌 (메모리 close)
+%>

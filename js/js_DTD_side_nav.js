@@ -1,15 +1,15 @@
-// Get all accordion spans
+//모든 서브 메뉴들 불러오기
 accordions = document.querySelectorAll('.accordion');
 
-// Add click event listener to each accordion
+//모든 서브 메뉴에 클릭 이벤트 생성 
 accordions.forEach(accordion => {
 
 	accordion.addEventListener('click', function() {
 			
-		const submenu = this.nextElementSibling;
-		const isActive = submenu.style.display === 'block';
+		const sub_menu = this.nextElementSibling;
+		const is_active = sub_menu.style.display === 'block';
 		
-		// Close all open submenus
+		//모든 서브메뉴 비활성화(토글 구현)
 		accordions.forEach(acc => {
 			if (acc !== accordion) {
 				const sub = acc.nextElementSibling;
@@ -17,7 +17,7 @@ accordions.forEach(accordion => {
 			}
 		});
 
-		// Toggle the clicked submenu
-		submenu.style.display = isActive ? 'none' : 'block';
+		//토글된 서브메뉴 활성화(토글 구현)
+		sub_menu.style.display = is_active ? 'none' : 'block';
 	});
 });

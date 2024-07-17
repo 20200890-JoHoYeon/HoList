@@ -1,34 +1,33 @@
-/*bd*/
+/*all*/
 * {
     margin: 0;
     padding: 0;
 	box-sizing: border-box;
+	font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: #fff;
 	overflow-x: hidden;
-
 }
-/* Make all headings responsive */
+
 h2 {
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-/* Adjust paragraph font size */
+
 p1 {
     font-size: 1rem;
 }
 
-/* Ensure images are responsive */
+
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* Ensure links are styled properly */
+
 a {
     text-decoration: none;
     color: black;
@@ -51,9 +50,9 @@ a {
 
 }
 
+/*main*/
 #main {  
     display: flex;
-	
 
 }
 
@@ -61,7 +60,7 @@ a {
     max-width: 100%;
 }
 
-#main_nav_area{
+#main_nav_area {
 	display: block;
     margin: 30px;
 }
@@ -90,8 +89,8 @@ a {
     background-color: #333;
     color: #fff;
     padding: 20px;
-	display: flex; /* Flexbox 레이아웃을 사용합니다 */
-    align-items: center; /* 세로 방향 중앙 정렬 */
+	display: flex; 
+    align-items: center; 
 	flex-direction: column;
 }
 
@@ -124,8 +123,8 @@ a {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-    border: 1.5px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7); /* 그림자 설정 */
+    border: 1.5px solid rgba(0, 0, 0, 0.1); 
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7);
 	background-color: #222;
     border-radius: 5px;
     padding: 20px;
@@ -133,16 +132,19 @@ a {
     resize: none;
 	display: none;
 }
-.s_menu, .l_menu_a, .accordion{
+
+.s_menu, .l_menu_a, .accordion {
 	display: none;
-	cursor: pointer; /* 기본 마우스 커서를 포인터로 설정 */
+	cursor: pointer;
 }
-.s_menu_a{
+
+.s_menu_a {
 	
     display: block;
     color: #fff;
     padding: 10px 10px;
 }
+
 .s_menu_a:hover {
     background-color: #555;
 }
@@ -167,8 +169,8 @@ a {
 	
 }
 .main_con_area_noti {
-    border: 1.5px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    border: 1.5px solid rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
     width:100%;
     height: 300px;
     border-radius: 5px;
@@ -176,48 +178,51 @@ a {
     margin-bottom: 50px;
 	height:100%;
 }
+
 .main_con_area_img {
-    border: 1.5px solid rgba(0, 0, 0, 0.1); /* 반투명한 검정색 border */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    overflow: hidden; /* 부모 요소를 넘어가는 내용을 숨깁니다 */
+    overflow: hidden;
     margin-bottom: 20px;
-    display: flex; /* Flexbox 레이아웃을 사용합니다 */
-    align-items: center; /* 세로 방향 중앙 정렬 */
-    justify-content: center; /* 가로 방향 중앙 정렬 */
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
 }
 
 .main_con_area_img .accordion_menu {
-    object-fit: cover; /* 이미지가 부모 요소에 맞게 크롭되도록 cover 옵션을 사용합니다 */
+    object-fit: cover;
 }
 
 .main_con_area_noti,
 .main_con_area_img {
-    width: 100%; /* Take full width */
-    max-width: 100%; /* Max width */
-    margin-bottom: 20px; /* Space between sections */
+    width: 100%; 
+    max-width: 100%; 
+    margin-bottom: 20px; 
 	
 }
 
 .main_con_area_noti {
-    padding: 20px; /* Padding for content */
+    padding: 20px; 
 }
+
+
 
 
 /*모바일 전용 사이드 바 CSS */
 @media only screen and (max-width: 1000px) {
-	/*bd*/
+	/*all*/
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 	}
 	/*PC 전용 네비바 모바일 사이즈에서 가리기*/
-	#main_side_nav_area, #main_nav_area{
+	#main_side_nav_area, #main_nav_area {
 		display:none;
 	}
 
-	#mobile_main_nav_area{
+	#mobile_main_nav_area {
 		display:block;
 		padding: 30px;
 		
@@ -236,8 +241,7 @@ a {
 		font-size: 1.55rem;
 	}
 
-
-	#mobile_side_nav_area{
+	#mobile_side_nav_area {
 		display: block;
 		width: 100%;
 		height: auto;
@@ -247,54 +251,35 @@ a {
 		padding: 20px;
 	}
 
-	.clickmenu{
-		display: none;
-	}
 		
-
-	.s_menu, .l_menu_a, .accordion{
-
-	}
-	.s_menu_a{
-
-	}
-	.s_menu_a:hover {
-
-	}
-	.accordion {
-
-	}
-
 	#mobile_side_nav_area .l_menu_a {
 		width: auto;
 		display: none;
 		color: #fff;
 		text-decoration: none;
-		padding: 10px 10px;
+		padding: 10px;
 	}
 	
 
 	#mobile_side_nav_area .l_menu_a:hover {
 		background-color: #555;
 	}
-	/* Make all headings responsive */
-	h2 {
+	
+	h2{
 		font-size: 2rem;
 		
 	}
-
-	/* Adjust paragraph font size */
-	p1 {
+	
+	p1{
 		font-size: 1.5rem;
 	}
 
-	/* Ensure links are styled properly */
-	a, h5, div {
+	a, h5, div{
 		text-decoration: none;
 		color: black;
-		font-size: 1.6rem;
+		font-size: 1.8rem;
 	}
-	.message_noti{
+	.message_noti {
 		font-size: 1.6rem;
 
 	}

@@ -1,19 +1,19 @@
 function mobileFnCheckValue(button) {
-    let lineValue = button.value.trim(); // 버튼의 값에서 공백을 제거한 값을 가져옵니다.
+    let line_value = button.value.trim(); // 버튼의 값에서 공백을 제거한 값을 가져옵니다.
 	
-    sessionStorage.setItem('lineValue', lineValue); // Store lineValue in session storage
-	console.log("생성한 메뉴 세션(모바일 메인 네비바 페이지): " + lineValue);
+    sessionStorage.setItem('line_value', line_value); // Store line_value in session storage
+	console.log("생성한 메뉴 세션(모바일 메인 네비바 페이지): " + line_value);
 
     // 사이드 네비 타이틀 변경
     let side_menu_title = document.getElementById('menu_title');
-    side_menu_title.innerText = lineValue;
+    side_menu_title.innerText = line_value;
 
-    let menuValue = ""; // FnCheckValue 내에서 menuValue를 다시 정의
+    let menu_value = ""; // FnCheckValue 내에서 menu_value를 다시 정의
 
-    if (lineValue === "백엔드") menuValue = "back";
-    else if (lineValue === "메일") menuValue = "mail";
-    else if (lineValue === "결재") menuValue = "payment";
-    else menuValue = "front";
+    if (line_value === "백엔드") menu_value = "back";
+    else if (line_value === "메일") menu_value = "mail";
+    else if (line_value === "결재") menu_value = "payment";
+    else menu_value = "front";
 
     // 모든 메뉴 스타일 초기화
     const menuButtons = document.querySelectorAll('.main_nav_menu_btn');
@@ -22,41 +22,41 @@ function mobileFnCheckValue(button) {
     });
 
     // 모든 서브메뉴를 숨깁니다.
-    const subMenus = document.querySelectorAll('.s_menu, .l_menu_a, .accordion');
-    subMenus.forEach(menu => {
+    const sub_menus = document.querySelectorAll('.s_menu, .l_menu_a, .accordion');
+    sub_menus.forEach(menu => {
         menu.style.display = 'none';
     });
 
 
-    // lineValue에 해당하는 서브메뉴를 표시합니다.
-    const submenuToShow = document.querySelectorAll(`#${menuValue} .l_menu_a, #${menuValue} .accordion`);
-    submenuToShow.forEach(menu => {
+    // line_value에 해당하는 서브메뉴를 표시합니다.
+    const sub_menu_to_show = document.querySelectorAll(`#${menu_value} .l_menu_a, #${menu_value} .accordion`);
+    sub_menu_to_show.forEach(menu => {
         menu.style.display = 'block';
     });
 
 	//클릭한 메인메뉴 식별 스타일 지정(굵은) js_DTD_main_nav 하단부 위치
-	fnBtnClickStyle(lineValue);
+	fnBtnClickStyle(line_value);
 	//사이드 메뉴 아코디언 속성 추가(모바일 전용)
-	mobileFnCheckAccordion(lineValue);
+	mobileFnCheckAccordion(line_value);
 }
 
 
 
-function mobileFnCheckAccordion(lineValue) {
+function mobileFnCheckAccordion(line_value) {
     // front-menu id를 가진 인풋 버튼의 값을 가져옵니다.
     const frontMenu = document.querySelector('#front');
     const backMenu = document.querySelector('#back');
     const mailMenu = document.querySelector('#mail');
     const paymentMenu = document.querySelector('#payment');
 
-    // 해당하는 lineValue에 따라 클릭된 메뉴를 설정합니다.
-    if (lineValue === document.getElementById('front-menu').value) {
+    // 해당하는 line_value에 따라 클릭된 메뉴를 설정합니다.
+    if (line_value === document.getElementById('front-menu').value) {
         clickmenu = frontMenu;
-    } else if (lineValue === document.getElementById('back-menu').value) {
+    } else if (line_value === document.getElementById('back-menu').value) {
         clickmenu = backMenu;
-    } else if (lineValue === document.getElementById('mail-menu').value) {
+    } else if (line_value === document.getElementById('mail-menu').value) {
         clickmenu = mailMenu;
-    } else if (lineValue === document.getElementById('payment-menu').value) {
+    } else if (line_value === document.getElementById('payment-menu').value) {
         clickmenu = paymentMenu;
     }
 

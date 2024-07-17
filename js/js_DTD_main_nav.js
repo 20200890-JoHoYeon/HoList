@@ -1,29 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     //초기값 설정
-	let lineValue = sessionStorage.getItem('lineValue') || '프론트';
-    let menuValue = "";
+	let line_value = sessionStorage.getItem('line_value') || '프론트';
+    let menu_value = "";
 
-    console.log("선택 값: " + lineValue + " / 변환 값: " + menuValue); // 수정: console.log() 사용 방법 수정
+    console.log("선택 값: " + line_value + " / 변환 값: " + menu_value); // 수정: console.log() 사용 방법 수정
 	
-    if (lineValue === "백엔드") menuValue = "back";
-    else if (lineValue === "메일") menuValue = "mail";
-    else if (lineValue === "결재") menuValue = "payment";
-    else menuValue = "front";
-    initMenuDisplay(); // 수정: DOMContentLoaded 이벤트 리스너 밖에서 한 번만 등록
+    if (line_value === "백엔드") menu_value = "back";
+    else if (line_value === "메일") menu_value = "mail";
+    else if (line_value === "결재") menu_value = "payment";
+    else menu_value = "front";
+    fn_init_menu_display(); // 수정: DOMContentLoaded 이벤트 리스너 밖에서 한 번만 등록
 
 	//초기값 설정함수
-    function initMenuDisplay() {
+    function fn_init_menu_display() {
 		//클릭한 메인메뉴 식별 스타일 지정(굵은)
-		fnBtnClickStyle(lineValue);
+		fnBtnClickStyle(line_value);
         
-		const submenuToShow = document.querySelectorAll(`#${menuValue} .l_menu_a, #${menuValue} .accordion`);
-        submenuToShow.forEach(menu => {
+		const sub_menu_to_show = document.querySelectorAll(`#${menu_value} .l_menu_a, #${menu_value} .accordion`);
+        sub_menu_to_show.forEach(menu => {
             menu.style.display = 'block';
         });
 	
         // 사이드 네비 타이틀 변경
         let side_menu_title = document.getElementById('menu_title');
-        side_menu_title.innerText = lineValue;
+        side_menu_title.innerText = line_value;
 		
 		// 모바일 사이드 네비 초기화 (전부 닫힌 상태 구현)
 		const menuIds = ['#front', '#back', '#mail', '#payment'];
@@ -44,39 +44,39 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function FnCheckValue(button) {
-    let lineValue = button.value.trim(); // 버튼의 값에서 공백을 제거한 값을 가져옵니다.
+    let line_value = button.value.trim(); // 버튼의 값에서 공백을 제거한 값을 가져옵니다.
 
-    sessionStorage.setItem('lineValue', lineValue); // Store lineValue in session storage
+    sessionStorage.setItem('line_value', line_value); // Store line_value in session storage
 
 
     // 사이드 네비 타이틀 변경
     let side_menu_title = document.getElementById('menu_title');
-    side_menu_title.innerText = lineValue;
+    side_menu_title.innerText = line_value;
 
-    let menuValue = ""; // FnCheckValue 내에서 menuValue를 다시 정의
+    let menu_value = ""; // FnCheckValue 내에서 menu_value를 다시 정의
 
-    if (lineValue === "백엔드") menuValue = "back";
-    else if (lineValue === "메일") menuValue = "mail";
-    else if (lineValue === "결재") menuValue = "payment";
-    else menuValue = "front";
+    if (line_value === "백엔드") menu_value = "back";
+    else if (line_value === "메일") menu_value = "mail";
+    else if (line_value === "결재") menu_value = "payment";
+    else menu_value = "front";
 
     // 모든 서브메뉴를 숨깁니다.
-    const subMenus = document.querySelectorAll('.s_menu, .l_menu_a, .accordion');
-    subMenus.forEach(menu => {
+    const sub_menus = document.querySelectorAll('.s_menu, .l_menu_a, .accordion');
+    sub_menus.forEach(menu => {
         menu.style.display = 'none';
     });
 
-    // lineValue에 해당하는 서브메뉴를 표시합니다.
-    const submenuToShow = document.querySelectorAll(`#${menuValue} .l_menu_a, #${menuValue} .accordion`);
-    submenuToShow.forEach(menu => {
+    // line_value에 해당하는 서브메뉴를 표시합니다.
+    const sub_menu_to_show = document.querySelectorAll(`#${menu_value} .l_menu_a, #${menu_value} .accordion`);
+    sub_menu_to_show.forEach(menu => {
         menu.style.display = 'block';
     });
 	
-	fnBtnClickStyle(lineValue);
+	fnBtnClickStyle(line_value);
 }
 
 //클릭한 메인메뉴 식별 스타일 지정 함수(굵은)
-function fnBtnClickStyle(lineValue) {
+function fnBtnClickStyle(line_value) {
 
 	// 모든 메뉴 스타일 초기화
     const menuButtons = document.querySelectorAll('.main_nav_menu_btn');
@@ -91,15 +91,15 @@ function fnBtnClickStyle(lineValue) {
 	const paymentMenu = document.querySelectorAll('input[name="payment-menu"]');
 	let clickButton ="";
 
-    if (lineValue === document.getElementById('front-menu').value) {
+    if (line_value === document.getElementById('front-menu').value) {
         clickButton = frontMenu;
-    } else if(lineValue ===  document.getElementById('back-menu').value) {
+    } else if(line_value ===  document.getElementById('back-menu').value) {
         clickButton = backMenu;
     }
-	else if(lineValue === document.getElementById('mail-menu').value) {
+	else if(line_value === document.getElementById('mail-menu').value) {
         clickButton = mailMenu;
     }
-	else if(lineValue === document.getElementById('payment-menu').value) {
+	else if(line_value === document.getElementById('payment-menu').value) {
         clickButton = paymentMenu;
     }
 
