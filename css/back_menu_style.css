@@ -29,12 +29,20 @@ tbody tr:last-child td {
 
 
 /* 특정 열의 최소 너비 조정 */
+.tb_seq {
+     width: 4rem;
+	 
+}
 .tb_title {
-     min-width: 17rem;
+     width: 50rem;
 	 cursor:pointer;
 }
 .tb_write {
-     min-width: 5rem; 
+     width: 15rem; 
+}
+.tb_date {
+     width: 8rem;
+	 
 }
 
 
@@ -48,7 +56,7 @@ tbody tr:last-child td {
     color: #fff;
     padding: 10px;
 	right: 50px;
-	bottom: 50px;
+	bottom: 70px;
 	border-radius: 100px;
 	font-size: 17.5px;
 	font-weight: bold;
@@ -59,13 +67,7 @@ tbody tr:last-child td {
 #pagination{
 	display: flex;
 	justify-content: center;
-	margin-bottom: 1rem;
-}
-
-
-table {
-	border: 1px solid #aaa;
-	
+	margin: 40px 0px;
 }
 
 .bd_input {
@@ -93,6 +95,7 @@ table {
 }
 
 .bd_view_input {
+	width: 100%; 
 	font-size: 15px;
 	border:none;
 	outline:none;
@@ -122,7 +125,7 @@ table {
     height: 40px;
     font-size: 15px;
     border: 0;
-	margin: 0px 5px;
+	margin: 0px 15px;
     border-radius: 5px;
 }
 
@@ -139,6 +142,7 @@ table {
 	background: none;
 	border-radius: 0px;
 	font-weight: bold;
+	font-size: 18px;
 	width: 50px;
     height: 40px;
 	border: 0;
@@ -171,6 +175,7 @@ table {
 .table-responsive {
 	overflow-x: auto;
 	width: 100%;
+
 }
 
 .bd_view_comment_area {
@@ -197,6 +202,9 @@ table {
     padding: 15px;
 }
 
+.table-responsive { 
+	
+}
 
 
 /*모바일 전용 사이드 바 CSS */
@@ -235,11 +243,13 @@ table {
 	}
 
 	.bd_view_btn {
+		font-size: 1.6rem;
 		background: none;
 		border-radius: 0px;
 		font-weight: bold;
 		width: 50px;
 		height: 40px;
+		
 	}
 
 	.bd_view_btn:hover {
@@ -247,6 +257,8 @@ table {
 
 	}
 	.bd_view_comment_textarea {
-		font-size: 1.8rem;
+		font-size: 1.7rem;
 	}
+
+
 }

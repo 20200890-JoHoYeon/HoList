@@ -57,14 +57,17 @@
 							break;
 						case 'bd_list':
 							fn_load_content('<%= root %>webcontent/back_menu/bd_list.asp');
+							//document.location.herf = '<%= root %>webcontent/back_menu/bd_list.asp';
 		
 							break;
 						case 'bd_write':
 							fn_load_content('<%= root %>webcontent/back_menu/bd_write.asp');
+							//document.location.herf = '<%= root %>webcontent/back_menu/bd_write.asp';
 
 							break;
 						case 'bd_view':
 							fn_load_content('<%= root %>webcontent/back_menu/bd_view.asp');
+							//document.location.herf = '<%= root %>webcontent/back_menu/bd_view.asp';
 				
 							break;
 						default:
@@ -73,6 +76,11 @@
 							break;
 					}
 				}
+
+				
+				
+				
+				
 				//함수: main_con_area 내부에 자식 요소로 페이지를 생성 
 				function fn_load_content(url) {
 					fetch(url)
@@ -103,7 +111,7 @@
 							console.error('Error fetching content:', error);
 						});
 				}	
-
+				
             </script>
 
         </div>

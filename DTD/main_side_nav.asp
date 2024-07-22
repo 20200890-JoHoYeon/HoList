@@ -19,7 +19,7 @@
 
 	<div id="back" class="clickmenu">
 		<a class="l_menu_a" onclick="fnCheckMenu('bd_noti')">공지사항</a>
-		<a class="l_menu_a" onclick="fnCheckMenu('bd_list')">일반게시판</a>
+		<a class="l_menu_a" onclick="fnCheckMenu('bd_list'); document.cookie = 'currentPage=' + 1 + '; path=/';">일반게시판</a>
 		<a class="l_menu_a">파일게시판</a>
 		<a class="l_menu_a">덧글게시판</a>
 	</div>

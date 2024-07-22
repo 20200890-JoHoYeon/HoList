@@ -133,6 +133,7 @@
 		xhr.onreadystatechange = function() {
 			if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 				if (regModeYN == 'Y') {
+					document.cookie = 'currentPage=' + 1 + '; path=/';
 					alert("등록되었습니다.");
 					fnCheckMenu('bd_list');
 				}  
@@ -140,6 +141,7 @@
 					alert("수정하였습니다.");
 					fnCheckMenu('bd_view');
 				}
+
 				
 			} else if (this.readyState === XMLHttpRequest.DONE && this.status !== 200) {
 				alert("데이터 전송 중 오류가 발생했습니다. 다시 시도해주세요.");
@@ -150,9 +152,6 @@
 				   "&writeId=" + encodeURIComponent(writeId) + "&writer=" + encodeURIComponent(writer);
 		xhr.send(data);
 	}
-
-
-	
 
     if (regModeYN == 'N') {
 		selected_postId = getCookie('PostId');

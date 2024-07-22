@@ -22,6 +22,8 @@
 				'Rs로 디비를 연결, postId로 클릭된 게시글 Seq번호 담긴 쿠키 불러오기 
 				Dim Rs, postId
 				postId = Request.Cookies("PostId")
+
+				'postId	=	Request.QueryString("seq")
 					
 				SQL = "SELECT Title, regDate, modDate, writeName, content FROM tbl_board WHERE Seq = " & postId
 					'데이터 테스트 출력
@@ -33,8 +35,12 @@
 					'Response.Write("<div>Post ID: " & postId & "</div>")
 					'Response.Write("<div>Post ID: " & SQL & "</div>")
 					'Set Rs = conn.Execute(SQL)
+				
+				
 				Set Rs = Server.CreateObject("ADODB.Recordset")
 				Rs.Open SQL, conn, 0, 1, adCmdText
+
+
 				
 				Dim mod_date 
 				mod_date =" (최종 수정일: " & Trim(Rs("modDate")) & ")"
@@ -65,12 +71,29 @@
 				End If
 				Rs.Close
 			%>
-				
 			</table>
-			<br/>
-
-
+		</div>
+		<br/>
+		<div class="table-responsive">
 			<!-- 게시글 덧글 연결 -->
+		<%	
+			commentRecordsSQL = "SELECT writeName, regDate, modDate, tailContent, " & _
+								"(SELECT COUNT(*) FROM tbl_board_tail WHERE bd_Seq = " & postId & ") AS TotalComment " & _
+								"FROM tbl_board_tail " & _
+								"WHERE bd_Seq =" &postId
+
+			Set RsComment = Server.CreateObject("ADODB.Recordset")
+				RsComment.Open commentRecordsSQL, conn, 0, 1, adCmdText
+				TotalComment = 0
+				If (CInt(RsComment("TotalComment"))) Then 	
+					TotalComment = RsComment("TotalComment")		
+				END IF
+					
+				Dim tail_mod_date 
+				tail_mod_date =" (최종 수정일: " & Trim(RsComment("modDate")) & ")"
+		
+			
+		%>
 			<table>
 				<tr>
 					<td colspan="2">		
@@ -79,21 +102,45 @@
 							
 							<div>
 								<span class="bd_view_btn">COUNT</span>
-								<span class="bd_view_btn bd_view_delete_btn">0</span>								
+								<span class="bd_view_btn bd_view_delete_btn"><%= TotalComment %></span>								
 							</div>
 						</div>	
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">	
-
-						<div class="message_noti bd_comment_list_area" id="commentList"> 
+						
+						<div class="message_noti bd_comment_list_area" id="commentList">
+							
+							<%
+								If RsComment.EOF Then 
+									%>
+										<div class="comment">댓글이 없습니다.</div>
+										<br><br>
+									<%
+								Else 
+									Do Until RsComment.EOF
+										%>
+											<div><%= Trim(RsComment("writeName")) %></div>
+											<span><%= Trim(RsComment("regDate")) %></span>
+											<span><%= tail_mod_date %></span>
+											<div class="comment"><%= Trim(RsComment("tailContent"))%></div>
+											<br><br>
+										<%
+										RsComment.MoveNext
+									Loop 
+								End If 
+							%>
+							
 						</div>
+	
 						<div id="main_con_area_notis ">
 							<div class="main_con_area_noti" id="introduction">
 								<h2 class="message_noti">덧글 작성란</h2><br>
 								<div class="message_noti bd_view_comment_area">
-									<textarea class="multiply_input multiply_input_long bd_view_comment_textarea" onkeydown="handleKeyDown(event)" type="text" value="" id="one_value" name="one_value"></textarea>
+									<input id="txtWriteId" type="hidden" name="writeId"  value="1">
+									<input id="txtwriteName" placeholder="작성자" class="multiply_input bd_view_comment_textarea" onkeydown="handleKeyDown(event)" type="text" value=""  name="#txtWriter"></input>
+									<textarea id="txtMessage" placeholder= "댓글을 입력해주세요." class="multiply_input multiply_input_long bd_view_comment_textarea" onkeydown="handleKeyDown(event)" type="text" name="tailContent"></textarea>
 									<input class="star_btn bd_view_comment_btn" id="add_comment_btn" type="button" onclick="fnAddComment()" value="작성">
 								</div><br><br>
 							</div><br>
@@ -101,6 +148,12 @@
 					</td>
 				</tr>
 			</table>
+
+		<%
+			
+			RsComment.Close
+			Set RsComment = Nothing
+		%>
 		</div>
     </div>	
 </div>
@@ -152,9 +205,52 @@
 			fnAddComment();
 		}
 	}
-	
-	//함수: 덧글 둥록 처리
+
+	//함수: 덧글 둥록 처리 댓글달기 코드 디비 연결 만드는 중...
 	function fnAddComment() {
+		let postId = getCookie('PostId');
+
+		writeId = document.querySelector('#txtWriteId').value;
+		writeName = document.querySelector('#txtwriteName').value;
+		tailContent = document.querySelector('#txtMessage').value;
+		
+
+		if (writeName === "") {
+			alert("작성자를 입력해주세요.");
+			document.querySelector('#txtwriteName').focus();
+			return false;
+		} else if (tailContent === "") {
+			alert("댓글을 입력해주세요.");
+			document.querySelector('#txtMessage').focus();
+			return false;
+		}
+
+		if (confirm("덧글을 작성하시겠습니까?")) {
+			// AJAX를 사용하여 서버에 삭제 요청 보내기
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "/board/webcontent/back_menu/bd_comment_action.asp", true);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.onreadystatechange = function() {
+				if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+					alert("덧글이 등록되었습니다.");
+					fnCheckMenu('bd_view');
+				} else if (this.readyState === XMLHttpRequest.DONE && this.status !== 200) {
+					alert("댓글 등록 중 오류가 발생했습니다. 다시 시도해주세요.");
+				}
+			}
+			let data = "regModeYN=CY" + "&postId=" + postId + 
+				   "&tailContent=" + encodeURIComponent(tailContent) + 
+				   "&writeId=" + encodeURIComponent(writeId) + "&writeName=" + encodeURIComponent(writeName);
+			xhr.send(data);
+
+
+		}
+		
+
+	}
+	/*
+	//함수: 덧글 둥록 처리
+	function fnAddComment_test() {
 		//작성자 임의로 세션 생성
 		let username = "조호연";
 		sessionStorage.setItem("username", username);
@@ -212,7 +308,7 @@
 		commentInput.value = "";
 		commentInput.focus();
 	}
-
+	*/
 	
 </script>
 
