@@ -57,12 +57,12 @@
 							break;
 						case 'bd_list':
 							fn_load_content('<%= root %>webcontent/back_menu/bd_list.asp');
-							//document.location.herf = '<%= root %>webcontent/back_menu/bd_list.asp';
+							
 		
 							break;
 						case 'bd_write':
 							fn_load_content('<%= root %>webcontent/back_menu/bd_write.asp');
-							//document.location.herf = '<%= root %>webcontent/back_menu/bd_write.asp';
+							
 
 							break;
 						case 'bd_view':
@@ -78,8 +78,20 @@
 				}
 
 				
+				function fnCheckMenu1(menu_name, seq) {
+					sessionStorage.setItem('menu_name', menu_name); //선택한 서브 메뉴의 value 값을 세션으로 남겨서 페이지 리로드 시에도 해당 페이지를 유지하도록 동작
+					switch(menu_name) {
+						case 'bd_view':
+						console.log(seq);
+							fn_load_content('<%= root %>webcontent/back_menu/bd_view.asp?seq=' + seq);
 				
-				
+							break;
+						default:
+							fn_load_content('<%= root %>webcontent/front_menu/front_star.asp');
+							
+							break;
+					}
+				}
 				
 				//함수: main_con_area 내부에 자식 요소로 페이지를 생성 
 				function fn_load_content(url) {

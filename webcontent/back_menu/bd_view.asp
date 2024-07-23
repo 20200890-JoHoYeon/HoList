@@ -41,7 +41,7 @@
 				Rs.Open SQL, conn, 0, 1, adCmdText
 
 
-				
+				'게시글 수정일에 문자열 추가하여 출력하기
 				Dim mod_date 
 				mod_date =" (최종 수정일: " & Trim(Rs("modDate")) & ")"
 				
@@ -70,29 +70,27 @@
 			<%
 				End If
 				Rs.Close
+				Set Rs = Nothing 
 			%>
 			</table>
 		</div>
 		<br/>
 		<div class="table-responsive">
-			<!-- 게시글 덧글 연결 -->
+		<!-- 게시글 덧글 조회(추가로 토탈 댓글 카운트도 SELECT) -->
 		<%	
-			commentRecordsSQL = "SELECT writeName, regDate, modDate, tailContent, " & _
+			commentRecordsSQL = "SELECT Seq, writeName, regDate, modDate, tailContent, " & _
 								"(SELECT COUNT(*) FROM tbl_board_tail WHERE bd_Seq = " & postId & ") AS TotalComment " & _
 								"FROM tbl_board_tail " & _
 								"WHERE bd_Seq =" &postId
 
 			Set RsComment = Server.CreateObject("ADODB.Recordset")
 				RsComment.Open commentRecordsSQL, conn, 0, 1, adCmdText
+
 				TotalComment = 0
 				If (CInt(RsComment("TotalComment"))) Then 	
 					TotalComment = RsComment("TotalComment")		
 				END IF
-					
-				Dim tail_mod_date 
-				tail_mod_date =" (최종 수정일: " & Trim(RsComment("modDate")) & ")"
-		
-			
+
 		%>
 			<table>
 				<tr>
@@ -120,7 +118,12 @@
 									<%
 								Else 
 									Do Until RsComment.EOF
+										'댓글 수정일에 문자열 추가하여 출력하기
+										Dim tail_seq, tail_mod_date
+										tail_seq = Trim(RsComment("Seq"))
+										tail_mod_date =" (최종 수정일: " & Trim(RsComment("modDate")) & ")"
 										%>
+											<input class="bd_view_btn bd_view_delete_btn" type="button" value="삭제" onclick="deleteCommentFunction()">	
 											<div><%= Trim(RsComment("writeName")) %></div>
 											<span><%= Trim(RsComment("regDate")) %></span>
 											<span><%= tail_mod_date %></span>
@@ -159,12 +162,13 @@
 </div>
 
 <script>
+	//함수: 쿠키 불러오는 함수
 	function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';')[0];
     }
-
+	//함수: 게시글 상세 조회 취소 클릭 시 fnCheckMenu함수(default.asp 위치)를 통해 (리스트 페이지로 이동)
     function cancelFunction() {
         fnCheckMenu('bd_list');
     }
@@ -173,9 +177,9 @@
 		document.cookie = "regModeYN=" + 'N' + "; path=/";
         fnCheckMenu('bd_write');
     }
-
+	//함수: 게시글 삭제
 	function deleteFunction() {
-		let postId = getCookie('PostId');
+		let tail_seq = <%= tail_seq %>;
 		if (confirm("이 게시글을 삭제하시겠습니까?")) {
 			// AJAX를 사용하여 서버에 삭제 요청 보내기
 			let xhr = new XMLHttpRequest();
@@ -189,9 +193,31 @@
 					alert("게시글 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
 				}
 			}
-			 xhr.send("regModeYN=D&postId=" + encodeURIComponent(postId));
+			 xhr.send("regModeYN=D&tailSeq=" + encodeURIComponent(tail_seq));
 		}
 	}
+
+	//함수: 게시글 댓글 삭제
+	function deleteCommentFunction() {
+		let postId = getCookie('PostId');
+		if (confirm("이 댓글을 삭제하시겠습니까?")) {
+			// AJAX를 사용하여 서버에 댓글 삭제 요청 보내기
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "/board/webcontent/back_menu/bd_comment_action.asp", true);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.onreadystatechange = function() {
+				if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+					alert("댓글이 삭제되었습니다.");
+					fnCheckMenu('bd_list');
+				} else if (this.readyState === XMLHttpRequest.DONE && this.status !== 200) {
+					alert("댓글 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
+				}
+			}
+			 xhr.send("regModeYN=CD&postId=" + encodeURIComponent(postId));
+		}
+	}
+
+
 
 	//함수: 덧글 입력 엔터 키보드 처리
 	function handleKeyDown(event) {
@@ -206,7 +232,7 @@
 		}
 	}
 
-	//함수: 덧글 둥록 처리 댓글달기 코드 디비 연결 만드는 중...
+	//함수: 게시글 덧글 작성
 	function fnAddComment() {
 		let postId = getCookie('PostId');
 
@@ -226,7 +252,7 @@
 		}
 
 		if (confirm("덧글을 작성하시겠습니까?")) {
-			// AJAX를 사용하여 서버에 삭제 요청 보내기
+			// AJAX를 사용하여 덧글 작성 요청 보내기   
 			let xhr = new XMLHttpRequest();
 			xhr.open("POST", "/board/webcontent/back_menu/bd_comment_action.asp", true);
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -242,77 +268,37 @@
 				   "&tailContent=" + encodeURIComponent(tailContent) + 
 				   "&writeId=" + encodeURIComponent(writeId) + "&writeName=" + encodeURIComponent(writeName);
 			xhr.send(data);
-
-
 		}
-		
-
 	}
-	/*
-	//함수: 덧글 둥록 처리
-	function fnAddComment_test() {
-		//작성자 임의로 세션 생성
-		let username = "조호연";
-		sessionStorage.setItem("username", username);
-
-		let now = new Date();
-		let year = now.getFullYear();
-		let month = now.getMonth() + 1;
-		let date = now.getDate();
-		let hours = now.getHours();
-		let minutes = now.getMinutes();
-		let seconds = now.getSeconds();
-
-		// 시, 분, 초를 두 자리 숫자로 표시하기 위해 필요한 처리
-		hours = (hours < 10 ? "0" : "") + hours;
-		minutes = (minutes < 10 ? "0" : "") + minutes;
-		seconds = (seconds < 10 ? "0" : "") + seconds;   
-			 
-		 
-
-		// 날짜와 시간 문자열 생성
-		dateString = year + "-" + month + "-" + date;
-		timeString = hours + ":" + minutes + ":" + seconds;
-
-		let commentInput = document.getElementById("one_value");
-		let comment = commentInput.value.trim(); // 앞뒤 공백 제거
-
-		if (comment === "") {
-			alert("내용을 입력해주세요.");
-			commentInput.focus();
-			return;
-		}
-
-		let writer = sessionStorage.getItem("username");
-
-		// Create elements for new comment
-		let commentElementDiv = document.createElement("div");
-		let timeElementDiv = document.createElement("div");
-		let writerElementDiv = document.createElement("div");
-		let breakElement = document.createElement("br");
-
-		writerElementDiv.textContent = writer;
-		timeElementDiv.textContent = dateString + " " + timeString;
-		commentElementDiv.textContent = comment;
-		commentElementDiv.classList.add("comment");
-
-		// Add elements to comment list
-		let commentList = document.getElementById("commentList");
-		commentList.appendChild(writerElementDiv);
-		commentList.appendChild(timeElementDiv);
-		commentList.appendChild(commentElementDiv);
-		commentList.appendChild(breakElement);
-		commentList.appendChild(breakElement);
-
-		// Clear input field after adding comment
-		commentInput.value = "";
-		commentInput.focus();
-	}
-	*/
-	
 </script>
 
 <%
-	Set Rs = Nothing 
 	Set Conn = Nothing 
 %>
+
+<!--
+비동기로 엘리먼트 생성 시 스크립트 미적용 이슈
+<div id="divTest">
+	<span id="spnMessage" class="className" data-btn="btntest">테스트 메세지</span>
+</div>
+
+<script>
+
+
+	$(document).on('click', '.className', function(){
+		alert('t');
+	});
+
+	$('.className').click(function(){
+		alert('test');
+	});
+
+	let btn = $(this).data('btntest');
+
+	if (btn == 'btnTest'){
+		alert('안녕하세요');
+	}
+
+	document.getElementById('divTest').innerHTML = '<span id="spnMessage" class="className" data-btn="btntest">테스트 메세지</span>';
+</script>
+-->

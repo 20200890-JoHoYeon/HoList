@@ -24,27 +24,23 @@ tbody tr:last-child td {
     border-bottom: 0; 
 }
 
-
-
-
-
 /* 특정 열의 최소 너비 조정 */
-.tb_seq {
+.tr_seq {
      width: 4rem;
 	 
 }
-.tb_title {
+.tr_title {
      width: 50rem;
-	 cursor:pointer;
 }
-.tb_write {
+.td_action {
+	cursor:pointer;
+}
+.tr_write {
      width: 15rem; 
 }
-.tb_date {
+.tr_date {
      width: 8rem;
-	 
 }
-
 
 .reg_btn{
 	box-shadow: 0px 8px 6px -6px #666;
@@ -206,6 +202,9 @@ tbody tr:last-child td {
 	
 }
 
+#txtwriteName {
+	text-align: center;
+}
 
 /*모바일 전용 사이드 바 CSS */
 @media only screen and (max-width: 1000px) {

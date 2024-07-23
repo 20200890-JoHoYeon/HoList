@@ -8,15 +8,12 @@ Function commentWriteData(conn, regModeYN, postId, tailContent, writeId, writeNa
         'SQL = ""
 		Else
 			' 등록 모드 CY 
-			'INSERT INTO tbl_board_tail (bd_Seq, tailContent, writeId, writeName, regDate, modDate)
-			'VALUES (104,'옷걸이는 좋은거야', 1, '아빠는한국인', GETDATE(), GETDATE());
-			
 			
 			SQL = "INSERT INTO tbl_board_tail (bd_Seq, tailContent, writeId, writeName, regDate, modDate) " & _
 				  "VALUES ('" & postId & "', '" & tailContent & "', '" & writeId & "', '" & writeName & "', GETDATE(), GETDATE())"
     End If
 
-	conn.Execute(SQL)
+	conn.Execute(SQL)                                                       
 End Function
 
 Function commentDeleteData(conn, postId)

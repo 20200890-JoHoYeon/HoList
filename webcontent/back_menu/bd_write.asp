@@ -33,9 +33,10 @@
 				End Function
 				
 
-				' Main code block
+				'메인 코드 블럭
 				Dim postId, regModeYN, title, modDate, writeName, content
 				regModeYN = Request.Cookies("regModeYN")
+				'regModeYN 수정(N)이라면 포스트 아이디를 불러오고 아니라면 등록이니 "" 처리
 				If regModeYN = "N" Then
 					postId = Request.Cookies("PostId")
 					Else
@@ -43,7 +44,7 @@
 				End If
 				Dim postData
 				postData = GetPostData(conn, regModeYN, postId)
-
+				'함수를 통해 생성된 배열(DB에서 SELECT한 열 값)에 값 넣고 리턴된 배열을 해당하는 변수에 담기
 				title = postData(0)
 				modDate = postData(1)
 				writeName = postData(2)
@@ -88,31 +89,35 @@
 	</div>
 </div>
 <script>
+	//함수: 쿠키 불러오는 함수
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';')[0];
     }
 
+	//regModeYN: 게시글 등록모드 / 수정모드 구분자
     regModeYN = getCookie('regModeYN');
     console.log(regModeYN);
 
+	//함수: 게시글 등록모드 / 수정모드 취소 클릭 시 fnCheckMenu함수(default.asp 위치)를 통해 (등록:리스트 페이지/수정: 뷰 페이지 이동)
     function cancelFunction() {
         if (regModeYN == 'Y') {
             if (confirm("등록을 취소 하시겠습니까?") == false) return false;
+			 fnCheckMenu('bd_list');
         }  
 		else if (regModeYN == 'N') {
             if (confirm("수정을 취소 하시겠습니까?") == false) return false;
+			 fnCheckMenu('bd_view');
         }
-        fnCheckMenu('bd_list'); // Redirect to bd_list.asp
     }
-
+	//함수: 게시글 등록모드 / 수정모드
 	function regPostFunction() {
 		let title = document.querySelector('#txtTitle').value;
 		let writeId = document.querySelector('#txtWriteId').value;
 		let writer = document.querySelector('#txtWriter').value;
 		let content = document.querySelector('#txtMessage').value;
-
+		// 공백 유효성 검사
 		if (title === "") {
 			alert("제목을 입력해주세요.");
 			document.querySelector('#txtTitle').focus();
@@ -126,7 +131,7 @@
 			document.querySelector('#txtMessage').focus();
 			return false;
 		}
-		// AJAX를 사용하여 서버에 데이터 전송
+		// AJAX를 사용하여 서버에 데이터 전송 게시글 등록모드 / 수정모드
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "/board/webcontent/back_menu/bd_action.asp", true);
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -152,17 +157,13 @@
 				   "&writeId=" + encodeURIComponent(writeId) + "&writer=" + encodeURIComponent(writer);
 		xhr.send(data);
 	}
-
-    if (regModeYN == 'N') {
-		selected_postId = getCookie('PostId');
-		console.log(selected_postId);
-    }  
-	else if (regModeYN == 'Y') {
+	
+	//등록 모드의 경우 날짜 행 숨기기
+	if (regModeYN == 'Y') {
         document.querySelector('#date_tr').style.display = 'none';
     }
-	 document.querySelector('#date_tr').style.outline = 'none';
 
-    // Update the title and button text
+    //수정 모드, 등록 모드 여부에 따라 타이틀 및 버튼 글자 수정
     titleElement = document.getElementById("form_title");
     btnElement = document.querySelector('input[name="reg_submit"]');
     if (regModeYN == 'Y') {
