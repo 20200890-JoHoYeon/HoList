@@ -120,11 +120,13 @@
 									Do Until RsComment.EOF
 										'댓글 수정일에 문자열 추가하여 출력하기
 										Dim tail_seq, tail_mod_date
-										tail_seq = Trim(RsComment("Seq"))
+								
 										tail_mod_date =" (최종 수정일: " & Trim(RsComment("modDate")) & ")"
 										%>
-											<input class="bd_view_btn bd_view_delete_btn" type="button" value="삭제" onclick="deleteCommentFunction()">	
-											<div><%= Trim(RsComment("writeName")) %></div>
+											<div class="button-container">
+												<span><%= Trim(RsComment("writeName")) %></span> 
+													<input class="bd_view_btn bd_view_delete_btn" type="button" value="삭제" onclick="deleteCommentFunction(<%= Trim(RsComment("Seq")) %>)">
+											</div>
 											<span><%= Trim(RsComment("regDate")) %></span>
 											<span><%= tail_mod_date %></span>
 											<div class="comment"><%= Trim(RsComment("tailContent"))%></div>
@@ -179,7 +181,7 @@
     }
 	//함수: 게시글 삭제
 	function deleteFunction() {
-		let tail_seq = <%= tail_seq %>;
+		let postId = getCookie('PostId');
 		if (confirm("이 게시글을 삭제하시겠습니까?")) {
 			// AJAX를 사용하여 서버에 삭제 요청 보내기
 			let xhr = new XMLHttpRequest();
@@ -193,13 +195,12 @@
 					alert("게시글 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
 				}
 			}
-			 xhr.send("regModeYN=D&tailSeq=" + encodeURIComponent(tail_seq));
+			 xhr.send("regModeYN=D&postId=" + encodeURIComponent(postId));
 		}
 	}
 
 	//함수: 게시글 댓글 삭제
-	function deleteCommentFunction() {
-		let postId = getCookie('PostId');
+	function deleteCommentFunction(tailSeq) {
 		if (confirm("이 댓글을 삭제하시겠습니까?")) {
 			// AJAX를 사용하여 서버에 댓글 삭제 요청 보내기
 			let xhr = new XMLHttpRequest();
@@ -208,12 +209,12 @@
 			xhr.onreadystatechange = function() {
 				if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 					alert("댓글이 삭제되었습니다.");
-					fnCheckMenu('bd_list');
+					fnCheckMenu('bd_view');
 				} else if (this.readyState === XMLHttpRequest.DONE && this.status !== 200) {
 					alert("댓글 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
 				}
 			}
-			 xhr.send("regModeYN=CD&postId=" + encodeURIComponent(postId));
+			 xhr.send("regModeYN=CD&tailSeq=" + encodeURIComponent(tailSeq));
 		}
 	}
 
@@ -275,30 +276,3 @@
 <%
 	Set Conn = Nothing 
 %>
-
-<!--
-비동기로 엘리먼트 생성 시 스크립트 미적용 이슈
-<div id="divTest">
-	<span id="spnMessage" class="className" data-btn="btntest">테스트 메세지</span>
-</div>
-
-<script>
-
-
-	$(document).on('click', '.className', function(){
-		alert('t');
-	});
-
-	$('.className').click(function(){
-		alert('test');
-	});
-
-	let btn = $(this).data('btntest');
-
-	if (btn == 'btnTest'){
-		alert('안녕하세요');
-	}
-
-	document.getElementById('divTest').innerHTML = '<span id="spnMessage" class="className" data-btn="btntest">테스트 메세지</span>';
-</script>
--->

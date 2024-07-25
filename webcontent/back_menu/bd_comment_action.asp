@@ -4,10 +4,10 @@ Function commentWriteData(conn, regModeYN, postId, tailContent, writeId, writeNa
     Dim SQL
 
     If regModeYN = "CN" Then
-        ' ¼öÁ¤ ¸ðµå
+        ' ìˆ˜ì • ëª¨ë“œ
         'SQL = ""
 		Else
-			' µî·Ï ¸ðµå CY 
+			' ë“±ë¡ ëª¨ë“œ CY 
 			
 			SQL = "INSERT INTO tbl_board_tail (bd_Seq, tailContent, writeId, writeName, regDate, modDate) " & _
 				  "VALUES ('" & postId & "', '" & tailContent & "', '" & writeId & "', '" & writeName & "', GETDATE(), GETDATE())"
@@ -16,10 +16,10 @@ Function commentWriteData(conn, regModeYN, postId, tailContent, writeId, writeNa
 	conn.Execute(SQL)                                                       
 End Function
 
-Function commentDeleteData(conn, postId)
-'    Dim SQL
-'    SQL = ""
-'    conn.Execute(SQL)
+Function commentDeleteData(conn, tailSeq)
+    Dim SQL
+	SQL = "DELETE FROM tbl_board_tail WHERE Seq = " & tailSeq
+	conn.Execute(SQL)  
 End Function
 
 
@@ -32,27 +32,28 @@ Function fnStringReplace(strText, mode)
     Select Case mode
         Case "pass"
         Case Else 
-            strText = Replace(strText, "¹Ùº¸", "¤²¤²")
-            strText = Replace(strText, "¸ÛÃ»ÀÌ", "¤±¤º¤·")
-            strText = Replace(strText, "¶Ë°³", "¤¨¤¡")
+            strText = Replace(strText, "ë°”ë³´", "ã…‚ã…‚")
+            strText = Replace(strText, "ë©ì²­ì´", "ã…ã…Šã…‡")
+            strText = Replace(strText, "ë˜¥ê°œ", "ã„¸ã„±")
     End Select
     fnStringReplace = strText
 End Function
 
-' Å¬¶óÀÌ¾ðÆ®·ÎºÎÅÍ Àü¼ÛµÈ µ¥ÀÌÅÍ ¹Þ±â
+' í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ì „ì†¡ëœ ë°ì´í„° ë°›ê¸°
 regModeYN	= Request.Form("regModeYN")
 postId		= Request.Form("postId")
 tailContent		= fnStringReplace(Request.Form("tailContent"),"")
 writeId		= Request.Form("writeId")
 writeName		= fnStringReplace(Request.Form("writeName"),"")
+tailSeq = Request.Form("tailSeq")
 
 If regModeYN = "CD" Then
-    '´ñ±Û »èÁ¦ ¸ðµå
-		Call deleteData(conn, postId)
+    'ëŒ“ê¸€ ì‚­ì œ ëª¨ë“œ
+		Call commentDeleteData(conn, tailSeq)
 	Else
-		'´ñ±Û µî·Ï/¼öÁ¤ ¸ðµå
+		'ëŒ“ê¸€ ë“±ë¡/ìˆ˜ì • ëª¨ë“œ
 		Call commentWriteData(conn, regModeYN, postId, tailContent, writeId, writeName)
 End If
 
-Response.Write "¼º°ø"
+Response.Write "ì„±ê³µ"
 %>
